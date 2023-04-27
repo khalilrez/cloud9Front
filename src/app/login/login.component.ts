@@ -58,7 +58,7 @@ export class LoginComponent {
     this.http.post("http://localhost:8075/api/auth/signup", bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
       console.log(resultData);
-     
+     alert("done!");
 
     });
       

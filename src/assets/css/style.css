@@ -5718,7 +5718,7 @@ Coming Soon Area CSS
   position: relative;
   text-align: center;
   z-index: 1;
-  background-image: url(../img/coming-soon-bg.jpg);
+  background-image: url(../img/password-rafiki.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5775,7 +5775,7 @@ Coming Soon Area CSS
   top: 0;
   left: 0;
   background: #000000;
-  opacity: .6;
+  opacity: .2;
   z-index: -1;
 }
 

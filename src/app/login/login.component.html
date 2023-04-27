@@ -26,14 +26,14 @@
                 <span>or use your account</span>
                 <input type="text" placeholder="UserName" [(ngModel)]="username" [ngModelOptions]="{standalone: true} " id="username"/>
                 <input type="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true} " id="password"/>
-                <a href="#">Forgot your password?</a>
+                <a routerLink="/forgetPassword">Forgot your password?</a>
                 <button (click)="loginUser()">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
+                    <h1>Welcome Back !!</h1>
                     <p>To keep connected with us please login with your personal info</p>
                     <button (click)="showSignIn()" class="ghost" id="signIn">Sign In</button>
                 </div>

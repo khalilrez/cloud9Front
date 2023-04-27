@@ -21,6 +21,8 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
+    ForgetPasswordComponent,
+    ResetPwdComponent,
     
   ],
   imports: [
