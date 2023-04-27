@@ -18,6 +18,8 @@ import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
+import { ActivatedComponent } from './activated/activated.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -39,6 +41,10 @@ const routes: Routes = [
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
+  { path: 'ResetPwd/:email', component: ResetPwdComponent },
+  { path: 'activate/:token', component: ActivatedComponent },
+
+
 
 
 

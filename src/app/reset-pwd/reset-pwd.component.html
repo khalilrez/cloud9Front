@@ -9,21 +9,21 @@
                                 <img src="assets/img/logo.png" alt="logo">
                             </div>
                             
-                            <h3>Forget your password</h3>
-                            <p>Enter your email to recive the code</p>
+                            <h3>Change your password</h3>
+                            <p>Enter the code  that you already recived in the email </p>
 
                             <form>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true} " name="email" id="email" placeholder="exemple@xyz.com">
-                                    <input type="text" class="form-control" [(ngModel)]="code" [ngModelOptions]="{standalone: true} " name="code" id="email" placeholder="exemple@xyz.com">
-                                    <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true} " name="password" id="password" >
-
+                                    <input type="text" class="form-control" [(ngModel)]="code" [ngModelOptions]="{standalone: true} " name="code" id="code" placeholder="code">
+                                    <div style="margin-top: 20px;">
+                                    <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true} " name="password" id="password" placeholder="password">
+                                </div>
                                 </div>
 
                              
                                 <button type="submit" class="btn btn-primary" (click)="resetDone()">Change</button>
 
-                                <p>And don’t worry, we hate spam too!</p>
+                        
                             </form>
 
                             <div class="social">
@@ -41,8 +41,8 @@
             </div>
 
             <div class="col-lg-6 col-md-12 p-0">
-                <div class="coming-soon-time">
-                    <img src="assets/img/password-rafiki.png" alt="image">
+                <div class="reset">
+                    <img src="assets/img/Resetpassword-rafiki.png" alt="image">
 
               
                 </div>

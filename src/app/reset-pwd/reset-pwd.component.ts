@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reset-pwd',
@@ -12,22 +12,23 @@ export class ResetPwdComponent {
   code: string ="";
   password: string ="";
 
-  constructor(private router: Router,private http: HttpClient  ) { }
+
+  constructor(private router: Router,private http: HttpClient,private actRoute: ActivatedRoute  ) { }
 
   resetDone(){
-    console.log(this.email);
     console.log(this.code);
     
     let bodyData = {
-      email: this.email,
+      email: this.actRoute.snapshot.paramMap.get('email'),
       code: this.code,
+      password:this.password
     };
 
     this.http.post("http://localhost:8075/api/auth/resetPassword", bodyData).subscribe((resultData: any)=>{
       console.log(resultData);
 
-     
-      this.router.navigateByUrl("/home");
+      alert("done");
+      this.router.navigateByUrl("/login");
      
 
     });

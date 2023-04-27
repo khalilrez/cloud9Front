@@ -21,7 +21,7 @@ export class ForgetPasswordComponent {
 
     this.http.post("  http://localhost:8075/api/auth/ResetPasswordMail ", bodyData).subscribe((resultData: any)=>{
       console.log(resultData);
-      this.router.navigateByUrl("/resetPwd");
+      this.router.navigate(['ResetPwd',this.email ]);
      
       alert("check ur email!");
      

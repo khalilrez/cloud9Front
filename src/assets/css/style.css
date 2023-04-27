@@ -5723,6 +5723,17 @@ Coming Soon Area CSS
   background-size: cover;
   background-repeat: no-repeat;
 }
+.coming-soon-area .reset {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  background-image: url(../img/Resetpassword-rafiki.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .coming-soon-area .coming-soon-time img {
   display: none;
