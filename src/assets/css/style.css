@@ -4416,6 +4416,11 @@ Contact Area CSS
   margin: 0 auto;
   max-width: 700px;
 }
+.error-contentdone {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 520px;
+}
 
 .error-content h3 {
   font-size: 35px;
