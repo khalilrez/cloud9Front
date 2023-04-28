@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'comingsoon', component: ComingsoonComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'ResetPwd/:email', component: ResetPwdComponent },
-  { path: 'activate/:token', component: ActivatedComponent },
+  { path: 'activate', component: ActivatedComponent },
 
 
 
