@@ -20,6 +20,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,6 +44,8 @@ const routes: Routes = [
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'ResetPwd/:email', component: ResetPwdComponent },
   { path: 'activate', component: ActivatedComponent },
+  { path: 'edit', component: EditProfilComponent },
+
 
 
 

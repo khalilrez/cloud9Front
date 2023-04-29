@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit {
   username: string ="";
   email: string ="";
   password: string ="";
+
+
 
   constructor(private router: Router,private http: HttpClient,private storageService: TokenStorageService  ) { }
 
@@ -55,10 +58,17 @@ export class LoginComponent implements OnInit {
       console.log(resultData);
 
      
-      this.router.navigateByUrl("/home");
+      this.router.navigateByUrl("/edit");
      
 
-    });
+    }, 
+    (error: any )=> {
+      this.errorMessage = error;
+      console.error('There was an error!', error);
+
+    }
+    
+    );
  
   }
   
@@ -71,19 +81,27 @@ export class LoginComponent implements OnInit {
 
 
   save() {
+    let roles = new Set<string>();
+
     let bodyData = {
       "username" : this.username,
       "email" : this.email,
-      "password" : this.password
+      "password" : this.password,
+      "role":this.roles
     }
+
 
     this.http.post("http://localhost:8075/api/auth/signup", bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
       console.log(resultData);
      alert("done!");
-
+     window.location.reload();
     });
       
 
+  }
+  
+  changeRole(e : any) {
+this.roles=[e.target.value];
   }
 }

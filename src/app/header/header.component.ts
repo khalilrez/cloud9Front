@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { TokenStorageService } from '../service/token-storage.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,6 +10,11 @@ import * as $ from 'jquery';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+   roles: string[] = [];
+  isLoggedIn = false;
+
+  username?: string;
+  constructor(private Storage: TokenStorageService,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -19,7 +27,21 @@ export class HeaderComponent implements OnInit {
         $('.navbar-area').removeClass("is-sticky");
       }
     });
+    this.isLoggedIn = this.Storage.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.Storage.getUser();
+      this.roles = user.roles;
+      this.username = user.username;
+
 
   }
 
+}
+logout(){
+  this.Storage.signOut();
+  
+  this.router.navigateByUrl("/login");
+
+} 
 }

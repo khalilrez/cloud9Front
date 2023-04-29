@@ -7,6 +7,7 @@
 
     <div class="labto-nav">
         <div class="container">
+            
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" routerLink="/home"><img src="assets/img/logo.png" alt="logo"></a>
 
@@ -109,7 +110,10 @@
                             <span>04</span>
                         </a>
 
-                        <a routerLink="/login" class="btn btn-secondary">LOGIN !</a>
+                        <a routerLink="/login" class="btn btn-secondary" *ngIf="!isLoggedIn">LOGIN !</a>
+                        
+                        <a (click)="logout()" routerLink="/login" class="btn btn-secondary" *ngIf="isLoggedIn">LOGOUT</a>
+
                     </div>
                 </div>
             </nav>
