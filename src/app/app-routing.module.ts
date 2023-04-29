@@ -17,6 +17,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'research', component: ResearchComponent },
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
+  { path: 'pharmacy', component: PharmacydisplayComponent },
 
 
 

@@ -1,0 +1,75 @@
+<app-header></app-header>
+        <!-- Start Page Title Area -->
+        <div class="page-title-area">
+            <div class="container">
+                <div class="page-title-content">
+                    <h2>Pharmacys</h2>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Pharmacy near me </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+
+        <!-- Start Contact Area -->
+        <section class="contact-area ptb-120">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+            <div class="card shadow px-4 py-5 ">
+                <div class="card-header bg-white border-0 pb-0 text-center">
+                    <h2 class="mb-3">Get the most out of your network.</h2>
+                    <p class="mb-4 lead">
+                        Contact management designed for teams and individuals
+                    </p>
+                </div>
+                <div class="card-body pt-2">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="email" class="form-control form-control-lg rounded-start" placeholder="example@themesberg.com" required>
+                                    <button class="btn btn-tertiary" type="button"><span class="icon icon-xs me-1"><span class="fas fa-search"></span></span>Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-8">
+            <!-- Card -->
+
+
+
+            <div class="card" *ngFor="let ph of liste ">
+                <div class="card-header">
+                  <h3 class="card-header-title"  style="    font-style: normal;
+                  font-weight: bold;
+                  font-size: 16px;
+                  line-height: 24px;
+                  color: #0096D6;">{{ph.name}}</h3>
+                  <small class="text-muted">{{ph.type}}</small>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">  {{ph.address}} </h3>
+                  <a href="#" class="btn btn-primary">{{ph.tel}}</a>
+                </div>
+              </div>
+
+</div>
+
+           
+</div>
+</div>
+            
+  <!-- End Ccontainer-->
+
+        </section>
+        <!-- Start Contact Area -->
+
+<app-footer></app-footer>
