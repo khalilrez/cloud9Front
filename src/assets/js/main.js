@@ -67,6 +67,8 @@
         }
     });
 
+    
+
     // FAQ Accordion
     $(function() {
         $('.accordion').find('.accordion-title').on('click', function(){

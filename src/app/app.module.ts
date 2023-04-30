@@ -22,6 +22,7 @@ import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.comp
   ],
   imports: [
     BrowserModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
