@@ -19,6 +19,7 @@ export class EditProfilComponent {
   retrieveResonse: any;
   message: string = "";
   imageName: any = " ";
+  user1 = new User();
 
   constructor(private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient,private storageService: TokenStorageService) { }
   public onFileChanged(event: any) {
@@ -44,20 +45,18 @@ export class EditProfilComponent {
     user.phonenumber="";
     user.username="mayssoun";
     user.isverified=1;
+    
 
     console.log(user);
     this.httpClient.put(`http://localhost:8075/api/auth/update/${this.idUser}`, user ).subscribe((resultData: any)=>{
       console.log(resultData);     
       this.storageService.saveUser(resultData);
-
     });
  
 
     
   }
   ngOnInit(): void {
-
-
     this.isLoggedIn = this.Storage.isLoggedIn();
 
     if (this.isLoggedIn) {
