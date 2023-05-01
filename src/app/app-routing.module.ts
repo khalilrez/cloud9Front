@@ -17,6 +17,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminSetsComponent } from './admin-sets/admin-sets.component';
+import { AdminSecurityComponent } from './admin-security/admin-security.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,7 +42,12 @@ const routes: Routes = [
   { path: 'research', component: ResearchComponent },
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
-
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/users', component: AdminUsersComponent },
+  
+  { path: 'admin/profile', component: AdminProfileComponent },
+  { path: 'admin/settings', component: AdminSetsComponent },
+  { path: 'admin/security', component: AdminSecurityComponent },
 
 
 
@@ -72,5 +82,7 @@ export const routingComponents = [
   SingleBlogComponent,
   SingleServiceComponent,
   ShopComponent,
-  CheckoutComponent
+  CheckoutComponent,
+  AdminComponent,
+  AdminUsersComponent
 ];

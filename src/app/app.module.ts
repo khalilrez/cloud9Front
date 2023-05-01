@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,14 @@ import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminSetsComponent } from './admin-sets/admin-sets.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminSecurityComponent } from './admin-security/admin-security.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +50,17 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
-    
+
+    AdminComponent,
+    AdminProfileComponent,
+    AdminSetsComponent,
+    AdminUsersComponent,
+    AdminHeaderComponent,
+    AdminMenuComponent,
+    AdminSecurityComponent,
+  
+
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +69,9 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
     FormsModule
 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
