@@ -27,6 +27,7 @@ import { ActivatedComponent } from './activated/activated.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AuthInterceptor } from './helper/auth.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { AuthInterceptor } from './helper/auth.interceptor';
     ResetPwdComponent,
     ActivatedComponent,
     EditProfilComponent,
+   
     
   ],
   imports: [

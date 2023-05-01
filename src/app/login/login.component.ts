@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   username: string ="";
   email: string ="";
   password: string ="";
-
+  username1: string ="";
+  password1: string ="";
 
 
   constructor(private router: Router,private http: HttpClient,private storageService: TokenStorageService  ) { }
@@ -34,7 +35,13 @@ export class LoginComponent implements OnInit {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
+      this.router.navigateByUrl("/home");  
+
+    }else {
+      this.router.navigateByUrl("/login");  
+
     }
+
   }
 
   loginUser(){
@@ -42,8 +49,8 @@ export class LoginComponent implements OnInit {
     console.log(this.password);
     
     let bodyData = {
-      username: this.username,
-      password: this.password,
+      username: this.username1,
+      password: this.password1,
     };
 
     this.http.post("http://localhost:8075/api/auth/signin", bodyData).subscribe((resultData: any)=>{
@@ -53,10 +60,7 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
       console.log("login user");
-
       console.log(resultData);
-
-     
       this.router.navigateByUrl("/edit");
      
 

@@ -12,14 +12,12 @@ export class EditProfilComponent {
   roles: string[] = [];
   isLoggedIn = false;
   user = this.Storage.getUser();
-  selectedFile: File = new File([], '')
   idUser = this.user.id;
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
   message: string = "";
   imageName: any = " ";
-  user1 = new User();
+  name : string ="";
+  phone : string ="";
+  mail : string ="";
 
   constructor(private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient,private storageService: TokenStorageService) { }
   public onFileChanged(event: any) {
@@ -40,17 +38,21 @@ export class EditProfilComponent {
   save(): void {
     const user = new User();
     user.imageProfile= this.imageName;
-    user.email="";
+    user.email=this.mail;
     user.password="";
-    user.phonenumber="";
-    user.username="mayssoun";
+    user.phonenumber=this.phone;
+    user.username=this.name;
     user.isverified=1;
     
 
     console.log(user);
     this.httpClient.put(`http://localhost:8075/api/auth/update/${this.idUser}`, user ).subscribe((resultData: any)=>{
-      console.log(resultData);     
       this.storageService.saveUser(resultData);
+      if(resultData){
+        window.location.reload();
+
+      }
+      
     });
  
 
@@ -64,6 +66,12 @@ export class EditProfilComponent {
       this.roles = user.roles;
     }
     this.imageName= this.user.imageProfile;
+   this.name = this.user.username;
+   this.phone = this.user.phonenumber;
+   console.log(this.phone,"this.phone")
+   this.mail = this.user.email;
+
+
 
   }
 

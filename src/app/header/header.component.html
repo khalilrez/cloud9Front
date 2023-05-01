@@ -98,21 +98,22 @@
                     </ul>
 
                     <div class="others-options">
-                        <div class="languages-list">
-                            <select>
-                                <option value="1">En</option>
-                                <option value="2">Ge</option>
-                                <option value="3">Spa</option>
-                            </select>
-                        </div>
+                    
 
                         <a routerLink="/cart" class="cart-btn"><i class="flaticon-shopping-bag"></i>
                             <span>04</span>
                         </a>
 
                         <a routerLink="/login" class="btn btn-secondary" *ngIf="!isLoggedIn">LOGIN !</a>
-                        
-                        <a (click)="logout()" routerLink="/login" class="btn btn-secondary" *ngIf="isLoggedIn">LOGOUT</a>
+                                                <div class="dropdown" *ngIf="isLoggedIn">
+                            <img src={{imageName}} class="userImg"><i class="fas fa-chevron-down"></i>
+                            <div class="dropdown-content">
+                              <a routerLink="/edit">Settings</a>
+                              <a  (click)="logout()" routerLink="/login"  >Logout</a>
+
+                            </div>
+                          </div>
+                          
 
                     </div>
                 </div>
