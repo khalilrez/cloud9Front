@@ -23,6 +23,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Order2Component } from './order2/order2.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NotfoundComponent,
     ComingsoonComponent,
     PharmacydisplayComponent,
+    Order2Component,
     
   ],
   imports: [

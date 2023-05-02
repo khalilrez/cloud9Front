@@ -18,6 +18,7 @@ import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
+import { Order2Component } from './order2/order2.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
   { path: 'pharmacy', component: PharmacydisplayComponent },
+  { path: 'order', component:  Order2Component },
 
 
 
