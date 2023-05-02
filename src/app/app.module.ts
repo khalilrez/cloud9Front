@@ -26,9 +26,19 @@ import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AuthInterceptor } from './helper/auth.interceptor';
-
-
-@NgModule({
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminSetsComponent } from './admin-sets/admin-sets.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat'
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';@NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -52,21 +62,42 @@ import { AuthInterceptor } from './helper/auth.interceptor';
     ResetPwdComponent,
     ActivatedComponent,
     EditProfilComponent,
-   
-    
+    AdminComponent,
+    AdminProfileComponent,
+    AdminSetsComponent,
+    AdminUsersComponent,
+    AdminHeaderComponent,
+    AdminMenuComponent,
+    AdminSecurityComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-
+    SocialLoginModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [{
-    provide : HTTP_INTERCEPTORS,
+    provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi   : true,
-  },],
+    multi: true,
+  }, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('2353063484872542')
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

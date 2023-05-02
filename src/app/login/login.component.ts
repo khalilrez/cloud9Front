@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
+import { AuthService } from 'src/app/service/auth.service';
+import { SocialAuthService, FacebookLoginProvider } from '@abacritt/angularx-social-login';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +24,10 @@ export class LoginComponent implements OnInit {
   password1: string ="";
 
 
-  constructor(private router: Router,private http: HttpClient,private storageService: TokenStorageService  ) { }
+  constructor(private router: Router,private http: HttpClient,private storageService: TokenStorageService,private auth:AuthService,private authService: SocialAuthService, ) { }
+  user:any;
+  loggedIn:any;
+
 
   showSignUp() {
     document.getElementById('container')!.classList.add("right-panel-active");
@@ -41,6 +47,11 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/login");  
 
     }
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(this.user);
+      this.loggedIn = (user != null);
+    });
 
   }
 
@@ -106,5 +117,20 @@ export class LoginComponent implements OnInit {
   
   changeRole(e : any) {
 this.roles=[e.target.value];
+  }
+
+
+  signInWithGoogle(){
+    this.auth.googleSignIn();
+    
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);  
+    sessionStorage.setItem('auth-token',JSON.stringify(this.user.response));
+    this.router.navigate(['/edit']);
+    
+    
+    
   }
 }
