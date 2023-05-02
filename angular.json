@@ -44,7 +44,8 @@
               "src/back-assets/vendor/css/theme-default.css",
               "src/back-assets/css/demo.css",
               "src/back-assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css",
-              "src/back-assets/vendor/libs/apex-charts/apex-charts.css"
+              "src/back-assets/vendor/libs/apex-charts/apex-charts.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",

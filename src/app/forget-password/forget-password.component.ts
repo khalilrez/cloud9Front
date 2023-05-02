@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../service/token-storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forget-password',
@@ -9,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class ForgetPasswordComponent {
   email: string ="";
+  isLoggedIn = false;
+  phone: string="";
 
-  constructor(private router: Router,private http: HttpClient  ) { }
+  constructor(private router: Router,private http: HttpClient,private Storage: TokenStorageService,private toastr: ToastrService  ) { }
 
   resetPwd(){
     console.log(this.email);
@@ -18,16 +22,43 @@ export class ForgetPasswordComponent {
     let bodyData = {
       email: this.email,
     };
+    let data = {
+      phone: this.phone,
+    };
+  
+     if(this.email != ""){
+      this.http.post("  http://localhost:8075/api/auth/ResetPasswordMail ", bodyData).subscribe((resultData: any)=>{
+        console.log(resultData);
+        this.toastr.success('Check ur email', 'You recived the code',{timeOut: 3000});
+  
+      });
+    }
+      else if(this.phone !="") {
+        this.http.post(" http://localhost:8075/api/auth/restPwdSms", data).subscribe((resultData: any)=>{
+          console.log(resultData);
+          this.toastr.success('Check ur phone', 'You recived the code',{timeOut: 3000});            
 
-    this.http.post("  http://localhost:8075/api/auth/ResetPasswordMail ", bodyData).subscribe((resultData: any)=>{
-      console.log(resultData);
-      this.router.navigate(['ResetPwd',this.email ]);
-     
-      alert("check ur email!");
-     
+    
+              
+    
+        });
 
-    });
+      
+    }
+
+  
  
 
   }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.Storage.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.Storage.getUser();
+      this.email = user.email;
+    }
+    
+  }
+
 }

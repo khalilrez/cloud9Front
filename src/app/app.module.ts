@@ -33,10 +33,9 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';@NgModule({
   declarations: [
@@ -77,6 +76,13 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     SocialLoginModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot(),
+
+    ToastContainerModule,
+
+    BrowserAnimationsModule
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
