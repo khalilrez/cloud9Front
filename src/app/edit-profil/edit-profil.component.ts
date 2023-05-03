@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient,  } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { ConsultationFile } from '../models/consultationFile.model';
+import { ConsultationFileService } from '../service/consultationFile.service';
 
 @Component({
   selector: 'app-edit-profil',
@@ -11,6 +13,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-profil.component.css']
 })
 export class EditProfilComponent {
+  //consultation Files 
+  files:ConsultationFile[] = [];
+
   roles: string[] = [];
   isLoggedIn = false;
   user = this.Storage.getUser();
@@ -26,7 +31,7 @@ export class EditProfilComponent {
   confirmpasswoed:String="";
 
 
-  constructor(private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient,private storageService: TokenStorageService, private toastr: ToastrService) { }
+  constructor(private consultationFileService: ConsultationFileService,private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient,private storageService: TokenStorageService, private toastr: ToastrService) { }
   public onFileChanged(event: any) {
 
     var reader = new FileReader();
@@ -53,7 +58,7 @@ export class EditProfilComponent {
     
 
     console.log(user);
-    this.httpClient.put(`http://localhost:8075/api/auth/update/${this.idUser}`, user ).subscribe((resultData: any)=>{
+    this.httpClient.put(`http://127.0.0.1:8075/api/auth/update/${this.idUser}`, user ).subscribe((resultData: any)=>{
       this.storageService.saveUser(resultData);
       if(resultData){
         window.location.reload();
@@ -66,6 +71,16 @@ export class EditProfilComponent {
     
   }
   ngOnInit(): void {
+      this.consultationFileService.getAllConsultationFiles().subscribe(
+        (files) => {
+          this.files = files;
+          console.log(files);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
     this.isLoggedIn = this.Storage.isLoggedIn();
 
     if (this.isLoggedIn) {
@@ -105,5 +120,9 @@ export class EditProfilComponent {
 
   }
  
-
+  goToConsultationFile(cf:ConsultationFile,index:number) {
+    console.log("going to /consultation-file")
+    // Navigate to the consultation file component with the consultationFile object
+    this.router.navigate(['/consultation-file'], { state: { consultationFile: cf ,index:index} });
+  }
 }

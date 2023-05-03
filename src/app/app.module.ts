@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,6 +39,8 @@ import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toa
 import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +73,7 @@ import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
     AdminMenuComponent,
     AdminSecurityComponent,
     ResetPwdSmsComponent,
+    ConsultationFileComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,14 +81,13 @@ import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
     HttpClientModule,
     SocialLoginModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
-
+    NgbModule,
     ToastContainerModule,
-
     BrowserAnimationsModule
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
