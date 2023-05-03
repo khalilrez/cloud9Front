@@ -37,7 +37,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat'
-import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';@NgModule({
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+@NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -68,6 +70,7 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
+    ResetPwdSmsComponent,
   ],
   imports: [
     BrowserModule,

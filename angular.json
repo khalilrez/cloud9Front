@@ -27,6 +27,7 @@
               "src/back-assets/vendor/fons/boxicons"
             ],
             "styles": [
+              "src/assets/css/app.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/animate.min.css",
               "src/assets/css/fontawesome.min.css",

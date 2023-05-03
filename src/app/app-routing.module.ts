@@ -26,6 +26,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -56,6 +57,8 @@ const routes: Routes = [
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
+  { path: 'restSms/:phone', component: ResetPwdSmsComponent },
+
 
 ];
 
