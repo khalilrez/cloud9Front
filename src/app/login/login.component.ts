@@ -70,9 +70,15 @@ export class LoginComponent implements OnInit {
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
-      console.log("login user");
-      console.log(resultData);
-      this.router.navigateByUrl("/edit");
+      console.log(this.roles[0]);
+      if(this.roles[0] == "ROLE_PATIENT" || this.roles[0] == "ROLE_DOCTOR" || this.roles[0]=="ROLE_PHARMACY" ){
+        this.router.navigateByUrl("/edit");
+
+      }else if (this.roles[0] == "ROLE_ADMIN"){
+        this.router.navigateByUrl("/admin");
+
+      }
+
      
 
     }, 

@@ -28,12 +28,15 @@ export class HeaderComponent implements OnInit {
       }
     });
     this.isLoggedIn = this.Storage.isLoggedIn();
+    console.log(this.isLoggedIn)
 
     if (this.isLoggedIn) {
       const user = this.Storage.getUser();
       this.roles = user.roles;
       this.username = user.username;
       this.imageName = user.imageProfile;
+      console.log("icii")
+
 
 
   }
