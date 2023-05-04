@@ -82,6 +82,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 
 
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,8 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     ConferenceComponentComponent,
     EditConsultationFileComponent,
     MyprofileComponent,
+    ChatComponent,
+    
   ],
   imports: [
     CommonModule,
