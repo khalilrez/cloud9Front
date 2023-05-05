@@ -24,7 +24,24 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Order2Component } from './order2/order2.component';
-
+import { AddorederComponent } from './addoreder/addoreder.component';
+import { UpdateorderComponent } from './updateorder/updateorder.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminSetsComponent } from './admin-sets/admin-sets.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { AddpharmacyComponent } from './addpharmacy/addpharmacy.component';
+import { DisplaypharmacyadminComponent } from './displaypharmacyadmin/displaypharmacyadmin.component';
+import { UpdatepharmacyadminComponent } from './updatepharmacyadmin/updatepharmacyadmin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartpharamcyComponent } from './chartpharamcy/chartpharamcy.component';
+import { NgChartsModule } from 'ng2-charts';
+import { OrderadminComponent } from './orderadmin/orderadmin.component';
+import { AddorderadminComponent } from './addorderadmin/addorderadmin.component';
+import { UpdatzorderadminComponent } from './updatzorderadmin/updatzorderadmin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +64,28 @@ import { Order2Component } from './order2/order2.component';
     ComingsoonComponent,
     PharmacydisplayComponent,
     Order2Component,
+    AddorederComponent,
+    UpdateorderComponent,
+        AdminComponent,
+    AdminProfileComponent,
+    AdminSetsComponent,
+    AdminUsersComponent,
+    AdminHeaderComponent,
+    AdminMenuComponent,
+    AdminSecurityComponent,
+    AddpharmacyComponent,
+    DisplaypharmacyadminComponent,
+    UpdatepharmacyadminComponent,
+    ChartpharamcyComponent,
+    OrderadminComponent,
+    AddorderadminComponent,
+    UpdatzorderadminComponent,
+ 
+
+
+    
+
+  
     
   ],
   imports: [
@@ -54,7 +93,10 @@ import { Order2Component } from './order2/order2.component';
     Ng2SearchPipeModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NgChartsModule
+
 
   ],
   providers: [],

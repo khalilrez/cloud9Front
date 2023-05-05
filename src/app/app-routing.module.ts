@@ -19,7 +19,20 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
 import { Order2Component } from './order2/order2.component';
-
+import { AddorederComponent } from './addoreder/addoreder.component';
+import { UpdateorderComponent } from './updateorder/updateorder.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminSetsComponent } from './admin-sets/admin-sets.component';
+import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { AddpharmacyComponent } from './addpharmacy/addpharmacy.component';
+import { DisplaypharmacyadminComponent } from './displaypharmacyadmin/displaypharmacyadmin.component';
+import { UpdatepharmacyadminComponent } from './updatepharmacyadmin/updatepharmacyadmin.component';
+import { ChartpharamcyComponent } from './chartpharamcy/chartpharamcy.component';
+import { OrderadminComponent } from './orderadmin/orderadmin.component';
+import { AddorderadminComponent } from './addorderadmin/addorderadmin.component';
+import { UpdatzorderadminComponent } from './updatzorderadmin/updatzorderadmin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -42,18 +55,22 @@ const routes: Routes = [
   { path: 'comingsoon', component: ComingsoonComponent },
   { path: 'pharmacy', component: PharmacydisplayComponent },
   { path: 'order', component:  Order2Component },
-
-
-
-
-
-
-
-
-
-
-
-
+  { path: 'createorder', component:  AddorederComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/users', component: AdminUsersComponent },
+  
+  { path: 'admin/profile', component: AdminProfileComponent },
+  { path: 'admin/settings', component: AdminSetsComponent },
+  { path: 'admin/security', component: AdminSecurityComponent },
+  
+  { path: 'admin/addpharmacy', component: AddpharmacyComponent },
+  { path: 'admin/Displaypharmacyadmin', component: DisplaypharmacyadminComponent },
+  { path: 'admin/Updatepharmacyadmin', component: UpdatepharmacyadminComponent },
+  { path: 'admin/Updatepharmacyadmin/:idLocation', component:  UpdatepharmacyadminComponent },
+  { path: 'admin/chart', component:  ChartpharamcyComponent  },
+  { path: 'admin/order', component:  OrderadminComponent  },
+  { path: 'admin/addorder', component:  AddorderadminComponent  },
+  { path: 'admin/Updateorder/:idOrder', component:  AddorderadminComponent  },
 
 
 

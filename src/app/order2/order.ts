@@ -1,7 +1,10 @@
 export class Order {
-    idOreder:number;  
-    qte:number;  
-    totalprice:number;
-    status:String;  
+  
+    idOrder:number;
     orderItems:String;
+
+    qte:number;
+  totalprice:number;
+     status:String;
+    
 }

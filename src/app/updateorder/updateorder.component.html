@@ -1,0 +1,61 @@
+
+<app-header ></app-header>
+        <!-- Start Page Title Area -->
+        <div class="page-title-area">
+            <div class="container">
+                <div class="page-title-content">
+                    <h2>Orders</h2>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>update Order</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+
+        <!-- Start Contact Area -->
+        <section class="contact-area ptb-120">
+            <div class="card-body pt-2">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item ">
+                          <a  routerLink="/order">order List</a>
+                          <a  routerLink="/createorder">update order</a>    
+
+                        </li>
+                    </ul>
+            </div>
+             
+            <div class="col-md-8 offset-md">
+            <div class="container mt-5 mb-3">
+                <div class="row" >
+                   
+                    <form (ngSubmit)= "onSubmit()">
+
+                        <div class="form-group">
+                            <label> iteam </label>
+                            <input type="text" class="form-control" id="orderItems"
+                            [(ngModel)] = "order.orderItems" name="orderItems">
+                            <label> Quantite </label>
+                            <input type="text" class="form-control" id="qte"
+                            [(ngModel)] = "order.qte" name="qte">
+                        </div>
+                        
+<button class="btn btn btn-primary" type="submit"> update</button>
+                    </form>
+
+
+
+
+                
+            
+            </div>
+  <!-- End Ccontainer-->
+            </div>
+        </div>
+        </section>
+        <!-- Start Contact Area -->
+       
+<app-footer></app-footer>
+

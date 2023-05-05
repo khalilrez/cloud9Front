@@ -1,14 +1,17 @@
 
 <app-header ></app-header>
         <!-- Start Page Title Area -->
+
+
+       
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
-                    <h2>Pharmacys</h2>
+                    <h2>Orders</h2>
 
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li>Pharmacy near me </li>
+                        <li>My Orders</li>
                     </ul>
                 </div>
             </div>
@@ -16,52 +19,68 @@
         <!-- End Page Title Area -->
 
         <!-- Start Contact Area -->
+
+
+         
         <section class="contact-area ptb-120">
-            <div class="card-body pt-2">
-                    
-                <div class=" card row" >
-                    
-               <input  type="text" id="myFilter" class="form-control" placeholder="search for order" [(ngModel)]="ch">                         
-                     
-          
-            </div>
+            <div class="card-body pt-4">
+                <div class="card-body pt-2">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-            <div class="container mt-5 mb-3">
-                <div class="row" >
-                    <div class="col-md-4" *ngFor="let ph of liste |filter:ch ">
-                        
-                        <div class="card p-3 mb-2" > 
-                            <div class="d-flex justify-content-between">
+                        <a class="navbar-brand" href="#">      </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav">
+                            <li class="nav-item active">
+                              <a class="nav-link"  routerLink="/order">order List<span class="sr-only"></span></a>
+                            </li>
+                            <li class="nav-item">
                               
-                                <div class="d-flex flex-row align-items-center">
+                              <a class="nav-link" routerLink="/createorder">Create order</a>
+                            </li>
 
-                                    <div class="ms-2 c-details">
-                                        <h6 class="mb-0"></h6> <span></span>
-                                    </div>
-                                </div>
-                                <div class="badge"> <span></span> </div>
-                            </div>
-                            <div class="mt-5">
-                                <h3 class="heading">{{ph.orderItems}}</h3>
-                                <h4 class="heading">{{ph.qte}}</h4>
-                                <h4 class="heading">{{ph.totalprice}}</h4>
+                          </ul>
 
-
-                                <div class="mt-5">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                      </div>
-                                    <div class="mt-3"> <span class="text1">{{ph.status}} <span class="text2"></span></span> </div>
-                                    <button (click)="deleteorders(ph)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>                                </div>
-                            </div>
                         </div>
+                        <input  type="text" id="myFilter" class="form-control" placeholder="search for an order" [(ngModel)]="ch">                         
+
+                      </nav>                </div>
+                
+            <div class="container mt-5 mb-3">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let ph of orders |filter:ch ">
+                    <div class="col-sm-6">
+                      <div class="card text-center shadow px-13 py-6" style="width: 18rem;
+                      background-color: white;
+                      border: 1px solid #E6E6E6;
+                      filter: drop-shadow(-10px -10px 30px #FFFFFF),
+                       drop-shadow(4px 4px 20px rgba(174, 174, 192, 0.2));
+                      border-radius: 10px;
+                      margin-bottom: 15px;
+                      width: 100%;
+                      clear: both;
+                      box-shadow: 10px 10px 5px lightblue;
+                     ">
+                        <div class="card-body ">
+                            <img src="assets\img\med.png" style="width: 25%;height: 25%; "alt="image"> 
+                          <h5 class="card-title">{{ph.orderItems}}</h5>
+                          <img src="assets\img\qte.png" style="width: 25%;height: 25%; "alt="image"> 
+
+                          <p class="card-text">{{ph.qte}}</p>
+                  
+                       <a  (click) = "deleteorder(ph.idOrder)" class="btn btn-primary">Delete</a>
+                  
+                        </div>
+                      </div>
+                    </div>
                     </div>
                 </div>
             </div>
             
             </div>
   <!-- End Ccontainer-->
-
         </section>
         <!-- Start Contact Area -->
        
