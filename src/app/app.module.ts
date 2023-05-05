@@ -35,14 +35,31 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
-import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toastr';
+import { ToastrModule,ToastNoAnimationModule} from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {Clipboard} from '@angular/cdk/clipboard';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from "@angular/material/form-field"
+import { MatInputModule } from "@angular/material/input"
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { VideoCallComponent } from './video-call/video-call.component';
+import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
+import { CallService } from './service/call.service';
+import Peer from 'peerjs';
+import { CommonModule } from '@angular/common';
+
+
+
 @NgModule({
   declarations: [
+    CallInfoDialogComponents,
+    VideoCallComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -73,9 +90,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminMenuComponent,
     AdminSecurityComponent,
     ResetPwdSmsComponent,
-    ConsultationFileComponent,
-  ],
+    ConsultationFileComponent
+      ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -86,10 +104,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
     NgbModule,
-    ToastContainerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ClipboardModule,
+    MatSnackBarModule
   ],
-  providers: [{
+  providers: [
+  {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,
@@ -107,7 +131,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         console.error(err);
       }
     } as SocialAuthServiceConfig,
-  }],
+  },
+  CallService
+],
  
   bootstrap: [AppComponent]
 })

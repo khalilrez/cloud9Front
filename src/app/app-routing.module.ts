@@ -28,6 +28,7 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
+import { VideoCallComponent } from './video-call/video-call.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -54,12 +55,12 @@ const routes: Routes = [
   { path: 'edit', component: EditProfilComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/users', component: AdminUsersComponent },
-
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
   { path: 'restSms/:phone', component: ResetPwdSmsComponent },
   { path: 'consultation-file', component: ConsultationFileComponent },
+  { path: 'room',component: VideoCallComponent}
 
 
 
@@ -88,7 +89,4 @@ export const routingComponents = [
   ForgetPasswordComponent,
   AdminComponent,
   AdminUsersComponent
-
-
-
 ];

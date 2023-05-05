@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main-banner">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-6 col-md-12">
+              <div class="main-banner-content">
+                  <h1>Enjoy Your Call With Tobeeb</h1>
+              </div>
+          </div>
+      </div>
+  </div>
+<div class="container-fluid">
+    <div class="row p-2">
+      <button mat-raised-button color="primary" class="m-2 col" [disabled]="isCallStarted$ | async" (click)="showModal(false)">Start Call</button>
+      <button mat-raised-button class="m-2 col" [disabled]="isCallStarted$ | async" (click)="showModal(true)">Join Call</button>
+      <button mat-raised-button color="warn" class="m-2 col" [disabled]="!(isCallStarted$ | async)" (click)="endCall()">End Call</button>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <div id="video-wrapper">
+          <video #remoteVideo id="remote-video" poster="./assets/video-placeholder.jpg" autoplay playsinline></video>
+          <video #localVideo id="local-video" autoplay playsinline [muted]=true></video>
+        </div>
+      </div>
+    </div>
+  </div>
