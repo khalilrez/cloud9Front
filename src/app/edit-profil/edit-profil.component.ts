@@ -89,7 +89,7 @@ export class EditProfilComponent {
     }
     if(this.confirmpasswoed == this.newpassword){ 
       this.httpClient.put(` http://localhost:8075/api/auth/changepassword/${this.idUser}`, body ).subscribe((resultData: any)=>{
-        console.log(resultData.statusCode);
+        console.log(resultData);
           if(resultData.statusCode == 200){
             this.toastr.success('Password changed successfully', 'Well done',{timeOut: 3000});
           }

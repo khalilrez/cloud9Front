@@ -15,6 +15,10 @@ export class HeaderComponent implements OnInit {
   imageName :string ="";
   username?: string;
   constructor(private Storage: TokenStorageService,private router: Router) { }
+  isoptionsDisplayed = false; 
+  showOptions(){
+    this.isoptionsDisplayed = !this.isoptionsDisplayed
+  }
 
   ngOnInit(): void {
 
