@@ -17,20 +17,27 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
-
+import { AdminAppointmentComponent } from './admin-appointment/admin-appointment.component';
+import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'Calendar/:id', component: AppointmentComponent },
+  { path: 'MyCalendar/:id', component: MyAppointmentsComponent },
+  { path: 'Appointments', component: DoctorAppointmentComponent },
+
   { path: 'cart', component: CartComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'single-team', component: SingleTeamComponent },
+  { path: 'single-team/:id', component: SingleTeamComponent },
   { path: 'blogOne', component: BlogOneComponent },
   { path: 'blogTwo', component: BlogTwoComponent },
   { path: 'single-blog', component: SingleBlogComponent },
@@ -48,6 +55,8 @@ const routes: Routes = [
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
+  { path: 'admin/appointment', component: AdminAppointmentComponent },
+
 
 
 
@@ -72,6 +81,8 @@ export class AppRoutingModule { }
 
 export const routingComponents = [
   HomeComponent,
+  AppointmentComponent,
+  MyAppointmentsComponent,
   CartComponent,
   AboutUsComponent,
   LoginComponent,
@@ -84,5 +95,8 @@ export const routingComponents = [
   ShopComponent,
   CheckoutComponent,
   AdminComponent,
-  AdminUsersComponent
+  AdminUsersComponent,
+  AdminAppointmentComponent,
+  DoctorAppointmentComponent
+
 ];
