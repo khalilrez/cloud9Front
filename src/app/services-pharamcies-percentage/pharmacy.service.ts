@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pharmacy } from './pharmacydisplay/Pharmacy';
+import { Pharmacy } from '../pharmacydisplay/Pharmacy';
 import { Observable } from 'rxjs';
-import { Percentage } from './Percentage';
+import { Percentage } from '../models pharmacy order percentage/Percentage';
 import { map } from 'jquery';
 
 
@@ -11,7 +11,7 @@ import { map } from 'jquery';
 })
 export class PharmacyService {
   api = "http://localhost:8075/api/PharamcyLocation"
-  //map="http://localhost:8075/map"
+  //map="http://localhost:8075/api/map"
   char = "http://localhost:8075/api/PharamcyLocation/percentage"
   constructor(private http: HttpClient) { }
   pharmacy: Pharmacy =new Pharmacy();

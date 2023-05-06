@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, ViewChild, ElementRef,  OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { PharmacyService } from '../pharmacy.service';
+import { PharmacyService } from '../services-pharamcies-percentage/pharmacy.service';
 import { error } from 'jquery';
-import { Percentage } from '../Percentage';
+import { Percentage } from '../models pharmacy order percentage/Percentage';
 
 @Component({
   selector: 'app-chartpharamcy',

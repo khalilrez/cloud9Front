@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PharmacyService } from '../pharmacy.service';
+import { PharmacyService } from '../services-pharamcies-percentage/pharmacy.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';

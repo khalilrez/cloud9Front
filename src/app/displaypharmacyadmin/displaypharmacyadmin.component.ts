@@ -2,7 +2,7 @@ import { Component, OnInit, Output  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pharmacy } from '../pharmacydisplay/Pharmacy';
 import { Router } from '@angular/router';
-import { PharmacyService } from '../pharmacy.service';
+import { PharmacyService } from '../services-pharamcies-percentage/pharmacy.service';
 @Component({
   selector: 'app-displaypharmacyadmin',
   templateUrl: './displaypharmacyadmin.component.html',

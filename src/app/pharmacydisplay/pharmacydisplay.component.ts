@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pharmacy } from './Pharmacy';
 import { Router } from '@angular/router';
-import { PharmacyService } from '../pharmacy.service';
-import { Percentage } from '../Percentage';
+import { PharmacyService } from '../services-pharamcies-percentage/pharmacy.service';
+import { Percentage } from '../models pharmacy order percentage/Percentage';
 
 @Component({
   selector: 'app-research ',
