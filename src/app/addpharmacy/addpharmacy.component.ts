@@ -29,7 +29,7 @@ export class AddpharmacyComponent implements OnInit{
 
   gotolist()
 {
-this.router.navigate(['/admin/addpharmacy']);
+this.router.navigate(['/admin/Displaypharmacyadmin']);
 
 }
 onSubmitphar()

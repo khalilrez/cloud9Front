@@ -43,15 +43,15 @@ update(){
   
 
 }
-
+gotolist(){
+  this.router.navigate(['/admin/Displaypharmacyadmin']);
+}
 
   onSubmitphar()
   {
   this.update();
   }
 
-  gotolist(){
-    this.router.navigate(['/admin/Displaypharmacyadmin']);
-  }
+ 
   }
 

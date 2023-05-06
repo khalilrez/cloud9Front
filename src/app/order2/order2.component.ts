@@ -27,7 +27,7 @@ private getOrder()
 {
   this.orderservice.getorderList().subscribe(data => 
     {
-    this.orders = data;
+    this.orders =data;
     })
 }
 
