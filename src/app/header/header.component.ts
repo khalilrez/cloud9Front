@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-   roles: string[] = [];
+   roles: string = "";
+   roleeee: string = "";
+
   isLoggedIn = false;
   imageName :string ="";
   username?: string;
@@ -36,7 +38,9 @@ export class HeaderComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.Storage.getUser();
-      this.roles = user.roles;
+      this.roles = user.roles[0].name;
+      this.roleeee =user.roles[0];
+      console.log(this.roles);
       this.username = user.username;
       this.imageName = user.imageProfile;
       console.log("icii")

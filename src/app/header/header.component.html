@@ -110,7 +110,7 @@
                         <li class="nav-item navbar-dropdown dropdown-user dropdown">
                             <div (click)="showOptions()" class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                 <div class="avatar avatar-online">
-                                    <img src={{imageName}} alt="" class="w-px-40 h-auto rounded-circle">
+                                    <img src={{imageName}} alt="" class="userImg">
                                 </div>
                             </div>
                             <ul *ngIf="isoptionsDisplayed" class="dropdown-menu dropdown-menu-end show">
@@ -120,12 +120,14 @@
                                             <div class="flex-shrink-0 me-3">
                                                 <div class="avatar avatar-online">
                                                     <img src={{imageName}} alt=""
-                                                        class="w-px-40 h-auto rounded-circle">
+                                                        class="userImg">
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
                                                 <span class="fw-semibold d-block">{{username}}</span>
-                                                <small class="text-muted">{{roles}}</small>
+                                                <small class="text-muted" *ngIf="roles">{{roles}}</small>
+                                                <small class="text-muted" *ngIf="roleeee">{{roleeee}}</small>
+
                                             </div>
                                         </div>
                                     </a>
@@ -134,7 +136,7 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" routerLink="/myprofile">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">My Profile</span>
                                     </a>
