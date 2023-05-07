@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { HttpClient, } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { ConsultationFile } from '../models/consultationFile.model';
+import { ConsultationFileService } from '../service/consultationFile.service';
+import { Appointment } from '../models/appointment.model';
 import { contains } from 'jquery';
 
 @Component({
@@ -12,6 +15,10 @@ import { contains } from 'jquery';
   styleUrls: ['./edit-profil.component.css']
 })
 export class EditProfilComponent {
+  //consultation Files 
+  files:ConsultationFile[] = [];
+  appointments:Appointment[] = [];
+
   roles: string = "";
   roleeee: string = "";
   isLoggedIn = false;
@@ -45,7 +52,8 @@ export class EditProfilComponent {
   hourForWorkingEnd: string = "";
   hourForWorkingStart: string = "";
 
-  constructor(private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient, private storageService: TokenStorageService, private toastr: ToastrService) { }
+
+  constructor(private consultationFileService: ConsultationFileService,private Storage: TokenStorageService, private router: Router, private httpClient: HttpClient, private storageService: TokenStorageService, private toastr: ToastrService) { }
   public onFileDocChanged(event: any) {
     console.log("output");
 
@@ -97,6 +105,7 @@ export class EditProfilComponent {
     user.hourForWorkingEnd = this.hourForWorkingEnd;
 
     console.log(user);
+
     this.httpClient.put(`http://localhost:8075/api/auth/update/${this.idUser}`, user).subscribe((resultData: any) => {
       this.storageService.saveUser(resultData);
       if (resultData) {
@@ -129,10 +138,30 @@ export class EditProfilComponent {
 
 
   ngOnInit(): void {
+      this.consultationFileService.getAllConsultationFiles().subscribe(
+        (files) => {
+          this.files = files;
+          console.log(files);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+      this.consultationFileService.getAllAppointmentsByDoctorId().subscribe(
+        (appointment) => {
+          this.appointments = appointment;
+          console.log(appointment);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
     this.isLoggedIn = this.Storage.isLoggedIn();
 
     if (this.isLoggedIn) {
       const user = this.Storage.getUser();
+
       console.log(user);
       this.roles = user.roles[0].name;
       this.roleeee = user.roles[0];
@@ -188,6 +217,17 @@ export class EditProfilComponent {
 
 
   }
+   
+  goToConsultationFile(cf:ConsultationFile,index:number) {
+    console.log("going to /consultation-file")
+    // Navigate to the consultation file component with the consultationFile object
+    this.router.navigate(['/consultation-file'], { state: { consultationFile: cf ,index:index} });
+  }
 
-
+  goToConsultationFileAsDoctor(id:string,user:string) {
+    console.log("going to /consultation-file-edit")
+    console.log(id)
+    // Navigate to the consultation file component with the consultationFile object
+    this.router.navigate(['/consultation-file-edit'], { state: { appointmentId: id ,patientId:user} });
+  }
 }

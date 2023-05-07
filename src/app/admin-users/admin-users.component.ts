@@ -18,7 +18,8 @@ export class AdminUsersComponent {
   username: string ="";
   email: string ="";
   password: string ="";
-  isoptionsDisplayed = false; 
+  isoptionsDisplayed = false;
+  rolesAny?: any;
   showOptions(){
     this.isoptionsDisplayed = !this.isoptionsDisplayed
     console.log(this.isoptionsDisplayed);
@@ -30,7 +31,13 @@ export class AdminUsersComponent {
     
 
 this.listUsers = resultData;
+
 console.log(this.listUsers);
+console.log("LOG ROLE");
+this.rolesAny = this.listUsers[1].role;
+
+console.log(this.rolesAny[0].name);
+
 
 
     });

@@ -34,6 +34,10 @@ import { AdminAppointmentComponent } from './admin-appointment/admin-appointment
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 import { SingleTeamComponent } from './single-team/single-team.component';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
+import { VideoCallComponent } from './video-call/video-call.component';
+import { ConferenceComponentComponent } from './conference-component/conference-component.component';
+import { EditConsultationFileComponent } from './edit-consultation-file/edit-consultation-file.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 
 const routes: Routes = [
@@ -64,7 +68,14 @@ const routes: Routes = [
   { path: 'edit', component: EditProfilComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/users', component: AdminUsersComponent },
-
+  { path: 'admin/profile', component: AdminProfileComponent },
+  { path: 'admin/settings', component: AdminSetsComponent },
+  { path: 'admin/security', component: AdminSecurityComponent },
+  { path: 'restSms/:phone', component: ResetPwdSmsComponent },
+  { path: 'consultation-file', component: ConsultationFileComponent },
+  { path: 'room',component: VideoCallComponent},
+  { path: 'conference', component:ConferenceComponentComponent},
+  { path: 'consultation-file-edit',component:EditConsultationFileComponent},
   { path: 'profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
@@ -74,7 +85,6 @@ const routes: Routes = [
   { path: 'admin/users', component: AdminUsersComponent },
   { path: 'admin/delivery', component: DeliveryComponent },
   { path: 'admin/reclamation', component: ReclamationComponent },
-
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
@@ -124,8 +134,5 @@ export const routingComponents = [
   DeliveryComponent,
   AdminAppointmentComponent,
   DoctorAppointmentComponent,
-
   AdminUsersComponent
-
-
   ];

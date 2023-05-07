@@ -9,12 +9,12 @@ import { TokenStorageService } from '../service/token-storage.service';
 export class AuthInterceptor implements HttpInterceptor {
     private storageService: TokenStorageService = new TokenStorageService;
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  
     req = req.clone({
       setHeaders: {
         'Content-Type' : 'application/json; charset=utf-8',
         'Accept'       : 'application/json',
         'Authorization':  `${this.storageService.getToken()}`,
-
       },
     });
 

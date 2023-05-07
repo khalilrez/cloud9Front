@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -62,12 +63,30 @@ import { ToastrModule,ToastNoAnimationModule} from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {Clipboard} from '@angular/cdk/clipboard';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { VideoCallComponent } from './video-call/video-call.component';
+import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
+import { CallService } from './service/call.service';
+import Peer from 'peerjs';
+import { CommonModule } from '@angular/common';
+import { ConferenceComponentComponent } from './conference-component/conference-component.component';
+import { EditConsultationFileComponent } from './edit-consultation-file/edit-consultation-file.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+
 
 
 @NgModule({
   declarations: [
+    CallInfoDialogComponents,
+    VideoCallComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -107,13 +126,14 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     AppointmentEditDashComponent,
     DeliveryComponent,
     ReclamationComponent,
-  
-
-    
     ResetPwdSmsComponent,
+    ConsultationFileComponent,
+    ConferenceComponentComponent,
+    EditConsultationFileComponent,
     MyprofileComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -123,23 +143,29 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    BrowserAnimationsModule,
-    DateTimePickerModule,
     ReactiveFormsModule,
     MatCardModule,
     MatOptionModule,
     MatSelectModule,
     NgxStripeModule.forRoot('pk_test_51MxfuEGPWonDGqDvLC4PcNV5LO5XcrlM1yQblYmn8vs7B2AsU48faVFiKodycaYP5rpViVavldaL29EweTzfhL5000RwQ0kled'),
     SocialLoginModule,
-    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
+    NgbModule,
     BrowserAnimationsModule,
-    FullCalendarModule
-
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ClipboardModule,
+    MatSnackBarModule,
+    FullCalendarModule,
+    DateTimePickerModule
   ],
-  providers: [{
+  providers: [
+  {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,
@@ -157,7 +183,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
         console.error(err);
       }
     } as SocialAuthServiceConfig,
-  }],
+  },
+  CallService
+],
  
   bootstrap: [AppComponent]
 })

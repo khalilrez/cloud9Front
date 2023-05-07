@@ -43,476 +43,138 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xxl-3">
-                            <div class="card mt-n5">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="profile-user d-inline-block mx-auto  mb-4">
-                                            <img src="/assets/img/avatar-homme.png"
-                                                class="rounded-circle avatar-xl img-thumbnail user-profile-image"
-                                                alt="user-profile-image" id="user_image"*ngIf="!imageName"  style="  width: 200px;
-                                                height:200px;">
-                                            
-                                                <img src={{imageName}}
-                                                class="rounded-circle avatar-xl img-thumbnail user-profile-image"
-                                                alt="user-profile-image" id="user_image"*ngIf="imageName"  style="  width: 200px;
-                                                height:200px;">
-                                            <input (change)="onFileChanged($event)" id="imageUser" name="imageUser"
-                                                type="file" class="custom-file-input" required="" hidden>
-                                                <label for="imageUser" class="buttonX" >Choose Image</label>
-
-                                        </div>
-                                        <h5 class="fs-16 mb-1">{{user.username}}</h5>
-                                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10">
+                          <div class="card mt-5">
+                            <div class="card-header">
+                              <div class="row">
+                                <div class="col">
+                                  <h4 class="mb-0">Consultation File # {{indexOfFile}}</h4>
                                 </div>
+                                <div class="col-auto">
+                                  <button type="button" class="btn btn-info" (click)="goBack()">Go back</button>
+                                </div>
+                              </div>
                             </div>
-                            <!--end card-->
-                         
-                            
-                        </div>
-                        <!--end col-->
-                        <div class="col-xxl-9">
-                            <div class="card mt-xxl-n5">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0"
-                                        role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link text-body active" data-bs-toggle="tab"
-                                                href="#personalDetails" role="tab">
-                                                <i class="fas fa-home"></i>
-                                                Personal Details
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-body" data-bs-toggle="tab" href="#changePassword"
-                                                role="tab">
-                                                <i class="far fa-user"></i>
-                                                Change Password
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" *ngIf="isRoleD">
-                                            <a class="nav-link text-body" data-bs-toggle="tab" href="#experience"
-                                                role="tab">
-                                                <i class="far fa-envelope"></i>
-                                                Experience
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="nav-item" *ngIf="!isRoleD">
-                                            <a class="nav-link text-body" data-bs-toggle="tab" href="#files"
-                                                role="tab">
-                                                <i class="far fa-file"></i>
-                                                Files
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" *ngIf="isRoleD">
-                                            <a class="nav-link text-body" data-bs-toggle="tab" href="#patients"
-                                                role="tab">
-                                                <i class="far fa-calendar-check"></i>
-                                                Patients Appointments
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="javascript:void(0);">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">First
-                                                                FirstName</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" [disabled]="isDisabled"
-                                                                placeholder="Enter your firstname"  value={{user.firstName}} [(ngModel)]="firstname" [ngModelOptions]="{standalone: true} ">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Last
-                                                                Name</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" [disabled]="isDisabled"
-                                                                placeholder="Enter your lastname" value={{user.lastName}} [(ngModel)]="lastname" [ngModelOptions]="{standalone: true} ">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Phone
-                                                                Number</label>
-                                                            <input type="text" class="form-control"
-                                                                id="phonenumberInput"
-                                                                placeholder="Enter your phone number" [disabled]="isDisabled"
-                                                                value={{user.phonenumber}} [(ngModel)]="phone" [ngModelOptions]="{standalone: true} ">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="emailInput" class="form-label">Email
-                                                                Address</label>
-                                                            <input type="email" class="form-control" id="emailInput" [disabled]="isDisabled"
-                                                                placeholder="Enter your email" value={{user.email}} [(ngModel)]="mail" [ngModelOptions]="{standalone: true}">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4" *ngIf="isRoleP">
-                                                        <div class="mb-3">
-                                                            <label for="JoiningdatInput" class="form-label">blood Type</label>
-                                                            <input type="text" class="form-control" [disabled]="isDisabled"  value={{user.bloodType}} [(ngModel)]="blood" [ngModelOptions]="{standalone: true}"/>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Age</label>
-                                                            <input type="text" class="form-control"
-                                                            value={{user.age}} [(ngModel)]="age" [ngModelOptions]="{standalone: true}" [disabled]="isDisabled"  >
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="websiteInput1"
-                                                                class="form-label">Gender</label>
-                                                                <select [disabled]="isDisabled" id="country" class="select2 form-select select2-hidden-accessible" (change)="changeGender($event)"  data-select2-id="country" tabindex="-1" aria-hidden="true">
-                                                                    <option value="">Choose </option>
-                                                                    <option value="MAN" (change)="changeGender($event)"  >MAN</option>
-                                                                    <option value="WOMEN" (change)="changeGender($event)">WOMEN</option>
-                                                                    </select>                                                      
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6" *ngIf="isRoleP">
-                                                        <div class="mb-3">
-                                                            <label for="countryInput" class="form-label">Height</label>
-                                                            <input type="text" [disabled]="isDisabled" class="form-control" id="countryInput"
-                                                                placeholder=""  value={{user.height}} [(ngModel)]="height" [ngModelOptions]="{standalone: true}" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6" *ngIf="isRoleD">
-                                                        <div class="mb-3">
-                                                            <label for="countryInput" class="form-label">Education</label>
-                                                            <input type="text" [disabled]="isDisabled" class="form-control" id="countryInput"
-                                                                placeholder=""  value={{user.education}} [(ngModel)]="education" [ngModelOptions]="{standalone: true}" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6" *ngIf="isRoleP">
-                                                        <div class="mb-3">
-                                                            <label for="countryInput"  class="form-label">Weight</label>
-                                                            <input type="text"  [disabled]="isDisabled"  class="form-control" id="countryInput"
-                                                                placeholder="" value={{user.weight}} [(ngModel)]="weight" [ngModelOptions]="{standalone: true}" />
-                                                        </div>
-                                                    </div>
-                                              
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="cityInput" class="form-label">City</label>
-                                                            <input type="text" [disabled]="isDisabled" class="form-control" id="cityInput"
-                                                                placeholder="City" value={{user.city}} [(ngModel)]="city" [ngModelOptions]="{standalone: true}" />
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                              
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="zipcodeInput" class="form-label">Zip
-                                                                Code</label>
-                                                            <input type="text" class="form-control" minlength="5"
-                                                                maxlength="6" id="zipcodeInput"
-                                                                placeholder="Enter zipcode" [disabled]="isDisabled" value={{user.postCode}} [(ngModel)]="postcode" [ngModelOptions]="{standalone: true}">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                
-                                                    <!--end col-->
-                                                    <div class="col-lg-12">
-                                                        <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit"
-                                                                class="btn btn-primary" (click)="save()">Updates</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary" (click)="changeState()">Edit profile</button>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </form>
-                                        </div>
-                                        <!--end tab-pane-->
-                                        <div class="tab-pane" id="changePassword" role="tabpanel">
-                                            <form action="javascript:void(0);">
-                                                <div class="row g-2">
-                                                    <div class="col-lg-4">
-                                                        <div>
-                                                            <label for="oldpasswordInput" class="form-label">Old
-                                                                Password*</label>
-                                                            <input type="password" class="form-control"
-                                                                id="oldpasswordInput"
-                                                                placeholder="Enter current password" [(ngModel)]="oldpassword" [ngModelOptions]="{standalone: true}">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div>
-                                                            <label for="newpasswordInput" class="form-label">New
-                                                                Password*</label>
-                                                           <div style="display: flex;">
-                                                            <input type="password" class="form-control"
-                                                            id="newpasswordInput" placeholder="Enter new password" [(ngModel)]="newpassword" [ngModelOptions]="{standalone: true}" > 
-                                                            <i class="bx bx-hide" style="margin-top: 15px; margin-left: -35px;" ></i>
-                                                        </div> 
-
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div>
-                                                            <label for="confirmpasswordInput" class="form-label">Confirm
-                                                                Password*</label>
-                                                            <input type="password" class="form-control"
-                                                                id="confirmpasswordInput"
-                                                                placeholder="Confirm password" [(ngModel)]="confirmpasswoed" [ngModelOptions]="{standalone: true}">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-12">
-                                                        <div class="mb-3">
-                                                            <a routerLink="/forgetPassword"
-                                                                class="link-primary text-decoration-underline">Forgot
-                                                                Password ?</a>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-12">
-                                                        <div class="text-end">
-                                                            <button (click)="changePwd()" Type="submit" class="btn btn-primary">Change
-                                                                Password</button>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </form>
-                                            <div class="mt-4 mb-3 border-bottom pb-2">
-                                                <div class="float-end">
-                                                    <a href="javascript:void(0);" class="link-primary">All Logout</a>
-                                                </div>
-                                                <h5 class="card-title">Login History</h5>
-                                            </div>
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="flex-shrink-0 avatar-sm">
-                                                    <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                                        <i class="ri-smartphone-line"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6>iPhone 12 Pro</h6>
-                                                    <p class="text-muted mb-0">Los Angeles, United States - March 16 at
-                                                        2:47PM</p>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:void(0);">Logout</a>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="flex-shrink-0 avatar-sm">
-                                                    <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                                        <i class="ri-tablet-line"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6>Apple iPad Pro</h6>
-                                                    <p class="text-muted mb-0">Washington, United States - November 06
-                                                        at 10:43AM</p>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:void(0);">Logout</a>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="flex-shrink-0 avatar-sm">
-                                                    <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                                        <i class="ri-smartphone-line"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6>Galaxy S21 Ultra 5G</h6>
-                                                    <p class="text-muted mb-0">Conneticut, United States - June 12 at
-                                                        3:24PM</p>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:void(0);">Logout</a>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0 avatar-sm">
-                                                    <div class="avatar-title bg-light text-primary rounded-3 fs-18">
-                                                        <i class="ri-macbook-line"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6>Dell Inspiron 14</h6>
-                                                    <p class="text-muted mb-0">Phoenix, United States - July 26 at
-                                                        8:10AM</p>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:void(0);">Logout</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end tab-pane-->
-                                        <div class="tab-pane" id="experience" role="tabpanel">
-                                            <form>
-                                                <div id="newlink">
-                                                    <div id="1">
-                                                        <div class="row">
-                                                            <div class="col-lg-12" *ngIf="isRoleD">
-                                                                    <div class="mb-3">
-                                                                        <label for="countryInput"  class="form-label">Speciality</label>
-                                                                        <input type="text"   class="form-control" id="countryInput"
-                                                                        placeholder="" [disabled]="isDisabled" value={{user.speciality}} [(ngModel)]="speciality" [ngModelOptions]="{standalone: true}" />
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                     
-                                                            <!--end col-->
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="experienceYear"
-                                                                        class="form-label">Working hours</label>
-                                                                    <div class="row">
-                                                                        <div class="col-lg-5">
-                                                                            <input type="text"   class="form-control" id="countryInput"
-                                                                            placeholder=""  [disabled]="isDisabled" value={{user.hourForWorkingStart}} [(ngModel)]="hourForWorkingStart" [ngModelOptions]="{standalone: true}" />
-                                                                    
-                                                                        </div>
-                                                                        <!--end col-->
-                                                                        <div class="col-auto align-self-center">
-                                                                            to
-                                                                        </div>
-                                                                        <!--end col-->
-                                                                        <div class="col-lg-5">
-
-                                                                            <input type="text"   class="form-control" id="countryInput"
-                                                                            placeholder=""  [disabled]="isDisabled" value={{user.hourForWorkingEnd}} [(ngModel)]="hourForWorkingEnd" [ngModelOptions]="{standalone: true}" />
-                                                                    
-                                                                        </div>
-                                                                        <!--end col-->
-                                                                    </div>
-                                                                    <!--end row-->
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-lg-12">
-                                                                <label for="experienceYear"
-                                                                class="form-label">Certificate</label>
-                                                                <div class="col-lg-12">
-                                                                    <img src={{certificatimage}} 
-                                                                    class=""
-                                                                    alt="user-profile-image" id="certificate_doc"   style="  width: 900px; height: 500px;
-                                                                    height:200px;">
-                                                                <input (change)="onFileDocChanged($event)" [disabled]="isDisabled" id="image" name="image"
-                                                                    type="file" class="custom-file-input" required="" hidden>
-                                                                    <label for="image" class="buttonX" >Upload certificate</label>
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                       
-                                                        </div>
-                                                        <!--end row-->
-                                                    </div>
-                                                </div>
-                                                <div id="newForm" style="display: none;">
-
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="hstack gap-2" style="margin-left: 700px;">
-                                                        <button type="submit" class="btn btn-primary" (click)="save()">Update</button>
-                                                        <a href="javascript:new_link()" class="btn btn-primary" (click)="changeState()" >Edit</a>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                            </form>
-                                        </div>
-                                        <!--end tab-pane-->
-                                        
-                                        <!--end tab-pane-->
-                                        <div class="tab-pane" id="files" role="tabpanel">
-                                            <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                  <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Doctor Notes</th>
-                                                    <th scope="col"></th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr *ngFor="let file of files;index as indexOfelement;">
-                                                    <th scope="row">#{{indexOfelement + 1 }}</th>
-                                                    <td>{{file.appointmentDate}}</td>
-                                                    <td *ngIf="file.doctorNotes?.length">{{file.doctorNotes}}</td>
-                                                    <td *ngIf="!file.doctorNotes?.length">No Doctor Notes</td>
-                                                    <td><button type="button" class="btn btn-primary btn-sm" (click)="goToConsultationFile(file,indexOfelement)">
-                                                        Check File
-                                                      </button></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                        </div>
+                            <div class="card">
+                                <div class="card-body">
+                                  <div class="row mb-4">
+                                    <div class="col-sm-6">
+                                      <h6 class="mb-3">Doctor's Note:</h6>
+                                      <p>{{consultationFile?.doctorNotes}}</p>
                                     </div>
-                                        <!--end tab-pane-->
-                                                                                <!--end tab-pane-->
-                                                                                <div class="tab-pane" id="patients" role="tabpanel">
-                                                                                    <div class="table-responsive">
-                                                                                    <table class="table">
-                                                                                        <thead>
-                                                                                          <tr>
-                                                                                            <th scope="col">#</th>
-                                                                                            <th scope="col">Date</th>
-                                                                                            <th scope="col">Patient's Name</th>
-                                                                                            <th scope="col"><button class="btn btn-primary" routerLink="/room">Create A Consultation Room</button></th>
-                                                                                          </tr>
-                                                                                        </thead>
-                                                                                        <tbody>
-                                                                                          <tr *ngFor="let appointment of appointments;index as indexOfelement;">
-                                                                                            <th scope="row">#{{indexOfelement + 1 }}</th>
-                                                                                            <td>{{appointment.dateStart}}</td>
-                                                                                            <td >{{appointment.patient}}</td>
-                                                                                            <td><button type="button" class="btn btn-primary btn-sm" *ngIf="appointment.consultationFileId != '0'" (click)="goToConsultationFileAsDoctor(appointment.idAppointment,appointment.patientId)">
-                                                                                                Check File
-                                                                                              </button>
-                                                                                              <button type="button" class="btn btn-primary btn-sm disabled" *ngIf="appointment.consultationFileId == '0'">
-                                                                                                File Not Ready Yet
-                                                                                              </button>
-                                                                                            
-                                                                                            </td>
-                                                                                          </tr>
-                                                                                        </tbody>
-                                                                                      </table>
-                                                                                </div>
-                                                                            </div>
-                                                                                <!--end tab-pane-->
+                        
+                                    <div class="col-sm-6">
+                                      <h6 class="mb-3">Date:</h6>
+                                      <p>{{consultationFile?.appointmentDate}}</p>
                                     </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                                  <div class="card">
+                                    <div class="card-header">
+                                      Prescription
+                                      <div class="float-end">
+                                        <button type="button" class="btn btn-primary">Export to PDF</button>
+                                      </div>
+                                    </div>
+                                    <div class="card-body">
+                                      <p class="card-text">{{prescription?.content}}.</p>
+                                    </div>
+                                  </div>
                                 </div>
+                                <div class="col-lg-6 col-md-12">
+                                  <h5 class="card-title">Tests
+                                        <ng-template #content let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="modal-basic-title">Add A New Test</h4>
+                                                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="dateOfBirth">Test Name</label>
+                                                        <div class="input-group mb-3">
+                                                            <input name="testName" [(ngModel)]="testName" type="text" class="form-control" placeholder="TEST NAME" aria-label="Username" aria-describedby="basic-addon1">
+                                                          </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-dark" (click)="addTest()">Save</button>
+                                            </div>
+                                        </ng-template>
+
+
+
+
+
+                                    <button class="btn btn-outline-primary btn-sm" (click)="openModal(content)">Add Test</button></h5>
+                                  <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let test of tests">
+                                      <div>{{test?.testName}}</div>
+                                      <ng-template #uploadImage let-modal>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="modal-basic-title">Add A New Test Image</h4>
+                                            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                    <form [formGroup]="imageForm" enctype="multipart/form-data" (ngSubmit)="addImageToTest(test.id)">
+                                        <div class="form-group">
+                                          <label for="image">Upload Image:</label>
+                                          <input type="file" id="image" name="file" (change)="onFileSelect($event)" class="form-control-file">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                      </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Close</button>
+                                    </div>
+                                    </ng-template>
+                                    <div>
+                                      <button class="btn btn-outline-primary btn-sm" (click)="openModal(uploadImage)">Add Image</button>
+                                      <button type="button" class="btn btn-sm btn-primary" (click)="toggleDisplayDiv(test?.id)">View Image</button>
+                                    </div>
+                                    </li>
+                                    <img [src]="imageUrl | async" />
+                                  </ul>
+                                  
+                                </div>
+
+                                <div>
+                                    
+                                </div>
+                              </div>
                             </div>
+                            <div class="card-footer text-end">
+                              Date: {{consultationFile?.appointmentDate}}
+                            </div>
+                          </div>
                         </div>
-                        <!--end col-->
-                    </div>
+                      </div>
                     <!--end row-->
 
                 </div>
                 <!-- container-fluid -->
             </div><!-- End Page-content -->
 
-        
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Velzon.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Themesbrand
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- end main content-->
 
@@ -1336,11 +998,11 @@
            
         </div>
 
-      
+      <!-- Modal -->
+
         
     </body>
 
 
     </html>
 </div>
-<app-footer></app-footer>
