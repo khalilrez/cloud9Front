@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'single-team', component: SingleTeamComponent },
+  { path: 'single-team/:id', component: SingleTeamComponent },
   { path: 'blogOne', component: BlogOneComponent },
   { path: 'blogTwo', component: BlogTwoComponent },
   { path: 'single-blog', component: SingleBlogComponent },
