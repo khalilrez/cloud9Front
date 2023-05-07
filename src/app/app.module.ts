@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,30 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDatepickerModule, MatDatepickerControl  } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDatetimeModule } from '@mat-datetimepicker/moment';
+import { MatDatetimepickerModule } from '@mat-datetimepicker/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as moment from 'moment';
+import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
+//import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { ReactiveFormsModule } from '@angular/forms'; // <-- Import the module here
+import { MtxDatetimepickerModule } from '@ng-matero/extensions/datetimepicker';
+import { MatCardModule } from '@angular/material/card';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
+import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { ChargeComponent } from './charge/charge.component';
+import { NgxStripeModule } from 'ngx-stripe';
+
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
@@ -33,6 +57,11 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { AdminAppointmentComponent } from './admin-appointment/admin-appointment.component';
+import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
+import { AppointmentFormDashComponent } from './appointment-form-dash/appointment-form-dash.component';
+import { AppointmentEditDashComponent } from './appointment-edit-dash/appointment-edit-dash.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { ToastrModule,ToastNoAnimationModule} from 'ngx-toastr';
@@ -60,6 +89,10 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
+    AppointmentComponent,
+    AppointmentFormComponent,
+    MyAppointmentsComponent,
+    ChargeComponent,
     ForgetPasswordComponent,
     ResetPwdComponent,
     ActivatedComponent,
@@ -71,6 +104,13 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
+    AdminAppointmentComponent,
+    DoctorAppointmentComponent,
+    AppointmentFormDashComponent,
+    AppointmentEditDashComponent,
+    
+
+    
     ResetPwdSmsComponent,
     MyprofileComponent,
   ],
@@ -78,6 +118,32 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    FullCalendarModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDatetimeModule,
+    MatDatetimepickerModule,
+    BrowserAnimationsModule,
+    DateTimePickerModule,
+   
+    ReactiveFormsModule,
+    MtxDatetimepickerModule,
+    MatCardModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgxStripeModule.forRoot('pk_test_51MxfuEGPWonDGqDvLC4PcNV5LO5XcrlM1yQblYmn8vs7B2AsU48faVFiKodycaYP5rpViVavldaL29EweTzfhL5000RwQ0kled')
+
+
+    
+
+  ],
+  providers: [],
     SocialLoginModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -9,7 +9,7 @@
                     <h1>Science is Nothing But Perception</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-                    <a href="#" class="btn btn-primary">Make Appointment</a>
+                    <a href="#" class="btn btn-primary" [routerLink]="['/MyCalendar', 2]">My Appointments</a>
                 </div>
             </div>
 
@@ -494,6 +494,7 @@
         </div>
 
         <div class="row">
+
             <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let u of listUsers">
                 <div class="single-team-member">
                     <div class="member-image">
@@ -507,7 +508,9 @@
                         <span>{{u.speciality}}</span>
                     </div>
                 </div>
+              </div>
             </div>
+          
 
         
 

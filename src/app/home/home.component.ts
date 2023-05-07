@@ -1,3 +1,6 @@
+import { Component, OnInit } from '@angular/core';
+import { User } from './user';
+import { UserService } from './user.service';
 import { Component } from '@angular/core';
 import { TokenStorageService } from '../service/token-storage.service';
 import { Router } from '@angular/router';
@@ -12,6 +15,17 @@ import { Role } from '../models/role.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+export class HomeComponent implements OnInit {
+  users: User[] = [];
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.userService.getusers().subscribe(users => {
+      this.users = users;
+      console.log(this.users);
+    });
+  }
 export class HomeComponent {
   isLoggedIn = false;
   roles: string[] = [];
