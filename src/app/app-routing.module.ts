@@ -110,6 +110,5 @@ export const routingComponents = [
 
 
 
-  AdminComponent,
-  AdminUsersComponent
+  
 ];

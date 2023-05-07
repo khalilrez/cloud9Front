@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-users',

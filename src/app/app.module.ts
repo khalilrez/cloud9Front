@@ -26,7 +26,6 @@ import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AuthInterceptor } from './helper/auth.interceptor';
-
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
@@ -36,12 +35,11 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
-import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toastr';
+import { ToastrModule,ToastNoAnimationModule} from 'ngx-toastr';
 import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +64,6 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     ResetPwdComponent,
     ActivatedComponent,
     EditProfilComponent,
-
     AdminComponent,
     AdminProfileComponent,
     AdminSetsComponent,
@@ -76,9 +73,6 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     AdminSecurityComponent,
     ResetPwdSmsComponent,
     MyprofileComponent,
-  
-
-
   ],
   imports: [
     BrowserModule,
@@ -90,7 +84,6 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
 
-    ToastContainerModule,
 
     BrowserAnimationsModule
 
@@ -115,9 +108,6 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     } as SocialAuthServiceConfig,
   }],
  
-  providers: [
-
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
