@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,23 +22,17 @@ import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { AppointmentComponent } from './appointment/appointment.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatDatepickerModule, MatDatepickerControl  } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatMomentDatetimeModule } from '@mat-datetimepicker/moment';
-import { MatDatetimepickerModule } from '@mat-datetimepicker/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as moment from 'moment';
+
 import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 //import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { ReactiveFormsModule } from '@angular/forms'; // <-- Import the module here
-import { MtxDatetimepickerModule } from '@ng-matero/extensions/datetimepicker';
 import { MatCardModule } from '@angular/material/card';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
@@ -69,6 +63,9 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,39 +116,25 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FullCalendarModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDatetimeModule,
-    MatDatetimepickerModule,
     BrowserAnimationsModule,
     DateTimePickerModule,
-   
     ReactiveFormsModule,
-    MtxDatetimepickerModule,
     MatCardModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
     MatOptionModule,
     MatSelectModule,
-    NgxStripeModule.forRoot('pk_test_51MxfuEGPWonDGqDvLC4PcNV5LO5XcrlM1yQblYmn8vs7B2AsU48faVFiKodycaYP5rpViVavldaL29EweTzfhL5000RwQ0kled')
-
-
-    
-
-  ],
-  providers: [],
+    NgxStripeModule.forRoot('pk_test_51MxfuEGPWonDGqDvLC4PcNV5LO5XcrlM1yQblYmn8vs7B2AsU48faVFiKodycaYP5rpViVavldaL29EweTzfhL5000RwQ0kled'),
     SocialLoginModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
-
-
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FullCalendarModule
 
   ],
   providers: [{

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AppointmentService {
   listAppointment:Appointment[]=[] ;
 
-  private apiServerUrl = 'http://localhost:8075'; // replace with your server's API endpoint
+  private apiServerUrl = 'http://localhost:8075/api/appointments'; // replace with your server's API endpoint
   
   constructor(private http: HttpClient) {}
   

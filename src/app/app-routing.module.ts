@@ -120,7 +120,7 @@ export const routingComponents = [
   AdminComponent,
   AdminUsersComponent,
   AdminAppointmentComponent,
-  DoctorAppointmentComponent
+  DoctorAppointmentComponent,
 
   AdminUsersComponent
 

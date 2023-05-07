@@ -1,4 +1,4 @@
-import { User } from './../home/user';
+import { User } from '../models/user.model';
 import { AppointmentComponent } from './../appointment/appointment.component';
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -6,15 +6,12 @@ import { AppointmentFormComponent } from '../appointment-form/appointment-form.c
 import { Appointment } from '../appointment/appointment';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from '../home/user.service';
-import { ActivatedRoute } from '@angular/router';
 import { AppointmentService } from '../appointment/appointment.service';
 import { ChargeComponent } from '../charge/charge.component';
-import { Component } from '@angular/core';
 import { TokenStorageService } from '../service/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { User } from '../models/user.model';
 
 @Component({
   selector: 'single-team/:id',
@@ -23,7 +20,7 @@ import { User } from '../models/user.model';
 })
 
 
-export class SingleTeamComponent {
+export class SingleTeamComponent implements OnInit {
   user? : User ;
   constructor(private router: Router,private http: HttpClient,private actRoute: ActivatedRoute,private userService: UserService, private dialog: MatDialog, private appointmentService: AppointmentService) { }
   openAddAppointment(){
@@ -52,20 +49,7 @@ export class SingleTeamComponent {
 
 
 
-  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUserById(id).subscribe((user) => {
-      this.user = user;
-    });
-    this.appointmentService.getAppointmentsByDoctor(id).subscribe(
-      (response: Appointment[]) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+
   
   
 }
