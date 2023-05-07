@@ -28,12 +28,13 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 import { AdminAppointmentComponent } from './admin-appointment/admin-appointment.component';
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 import { SingleTeamComponent } from './single-team/single-team.component';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,7 +42,6 @@ const routes: Routes = [
   { path: 'Calendar/:id', component: AppointmentComponent },
   { path: 'MyCalendar/:id', component: MyAppointmentsComponent },
   { path: 'Appointments', component: DoctorAppointmentComponent },
-
   { path: 'cart', component: CartComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'login', component: LoginComponent },
@@ -72,7 +72,9 @@ const routes: Routes = [
   { path: 'myprofile', component: MyprofileComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/users', component: AdminUsersComponent },
-  
+  { path: 'admin/delivery', component: DeliveryComponent },
+  { path: 'admin/reclamation', component: ReclamationComponent },
+
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
@@ -119,6 +121,7 @@ export const routingComponents = [
   ForgetPasswordComponent,
   AdminComponent,
   AdminUsersComponent,
+  DeliveryComponent,
   AdminAppointmentComponent,
   DoctorAppointmentComponent,
 

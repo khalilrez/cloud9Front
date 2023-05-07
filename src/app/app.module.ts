@@ -105,7 +105,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     DoctorAppointmentComponent,
     AppointmentFormDashComponent,
     AppointmentEditDashComponent,
-    
+    DeliveryComponent,
+    ReclamationComponent,
+  
 
     
     ResetPwdSmsComponent,
