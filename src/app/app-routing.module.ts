@@ -18,6 +18,11 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
+import { ActivatedComponent } from './activated/activated.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
@@ -26,6 +31,10 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
 import { AdminAppointmentComponent } from './admin-appointment/admin-appointment.component';
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 import { SingleTeamComponent } from './single-team/single-team.component';
+import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -49,6 +58,18 @@ const routes: Routes = [
   { path: 'research', component: ResearchComponent },
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
+  { path: 'forgetPassword', component: ForgetPasswordComponent },
+  { path: 'ResetPwd/:email', component: ResetPwdComponent },
+  { path: 'activate', component: ActivatedComponent },
+  { path: 'edit', component: EditProfilComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/users', component: AdminUsersComponent },
+
+  { path: 'profile', component: AdminProfileComponent },
+  { path: 'admin/settings', component: AdminSetsComponent },
+  { path: 'admin/security', component: AdminSecurityComponent },
+  { path: 'restSms/:phone', component: ResetPwdSmsComponent },
+  { path: 'myprofile', component: MyprofileComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/users', component: AdminUsersComponent },
   
@@ -94,9 +115,14 @@ export const routingComponents = [
   SingleServiceComponent,
   ShopComponent,
   CheckoutComponent,
+  ComingsoonComponent,
+  ForgetPasswordComponent,
   AdminComponent,
   AdminUsersComponent,
   AdminAppointmentComponent,
   DoctorAppointmentComponent
 
-];
+  AdminUsersComponent
+
+
+  ];

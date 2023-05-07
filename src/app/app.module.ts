@@ -45,6 +45,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { ChargeComponent } from './charge/charge.component';
 import { NgxStripeModule } from 'ngx-stripe';
 
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
+import { ActivatedComponent } from './activated/activated.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { AuthInterceptor } from './helper/auth.interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
@@ -57,6 +62,13 @@ import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointm
 import { AppointmentFormDashComponent } from './appointment-form-dash/appointment-form-dash.component';
 import { AppointmentEditDashComponent } from './appointment-edit-dash/appointment-edit-dash.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+import { ToastrModule,ToastNoAnimationModule} from 'ngx-toastr';
+import { AngularFireModule } from '@angular/fire/compat'
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +93,10 @@ import { AppointmentEditDashComponent } from './appointment-edit-dash/appointmen
     AppointmentFormComponent,
     MyAppointmentsComponent,
     ChargeComponent,
+    ForgetPasswordComponent,
+    ResetPwdComponent,
+    ActivatedComponent,
+    EditProfilComponent,
     AdminComponent,
     AdminProfileComponent,
     AdminSetsComponent,
@@ -95,6 +111,8 @@ import { AppointmentEditDashComponent } from './appointment-edit-dash/appointmen
     
 
     
+    ResetPwdSmsComponent,
+    MyprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -126,6 +144,36 @@ import { AppointmentEditDashComponent } from './appointment-edit-dash/appointmen
 
   ],
   providers: [],
+    SocialLoginModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot(),
+
+
+    BrowserAnimationsModule
+
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('2353063484872542')
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
