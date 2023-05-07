@@ -21,8 +21,8 @@ import { TokenStorageService } from '../service/token-storage.service';
 export class ConsultationFileComponent implements OnInit {
   consultationFile?: ConsultationFile;
   tests?:Test[] = [];
-  indexOfFile?: number;
   prescription?:Prescription;
+  indexOfFile?: number;
   testName:string = "";
   itemForm!: FormGroup;
   imageUrl?: Observable<string>;
@@ -45,6 +45,7 @@ export class ConsultationFileComponent implements OnInit {
         this.consultationFile = history.state.consultationFile;
         this.indexOfFile = history.state.index + 1 ;
     console.log(this.consultationFile);
+    
     this.consultationFileService.getAllTestsByUserId().subscribe(
       (tests) => {
         this.tests = tests;

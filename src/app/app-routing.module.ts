@@ -29,6 +29,8 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { ConsultationFileComponent } from './consultation-file/consultation-file.component';
 import { VideoCallComponent } from './video-call/video-call.component';
+import { ConferenceComponentComponent } from './conference-component/conference-component.component';
+import { EditConsultationFileComponent } from './edit-consultation-file/edit-consultation-file.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -60,7 +62,9 @@ const routes: Routes = [
   { path: 'admin/security', component: AdminSecurityComponent },
   { path: 'restSms/:phone', component: ResetPwdSmsComponent },
   { path: 'consultation-file', component: ConsultationFileComponent },
-  { path: 'room',component: VideoCallComponent}
+  { path: 'room',component: VideoCallComponent},
+  { path: 'conference', component:ConferenceComponentComponent},
+  { path: 'consultation-file-edit',component:EditConsultationFileComponent}
 
 
 

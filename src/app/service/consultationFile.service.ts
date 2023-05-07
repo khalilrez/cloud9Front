@@ -7,6 +7,7 @@ import { get } from 'jquery';
 import { Prescription } from '../models/prescription.model';
 import { Test } from '../models/test.model';
 import { TokenStorageService } from './token-storage.service';
+import { Appointment } from '../models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ import { TokenStorageService } from './token-storage.service';
 export class ConsultationFileService {
 
     private baseUrl = 'http://localhost:8075/api/consultation-files'; 
+    private appointmentsUrl = 'http://localhost:8075/api/appointments';
   
     constructor(private http: HttpClient, private tokenService:TokenStorageService) { }
   
@@ -29,6 +31,21 @@ export class ConsultationFileService {
       );
     }
 
+    
+
+    getAllAppointmentsByDoctorId(): Observable<Appointment[]> {
+      return this.http.get(`${this.appointmentsUrl}/doctor/${this.tokenService.getUser().id}`).pipe(
+        map((response: any) => response.map((appointment: any) => new Appointment(
+          appointment.idAppointment,
+          appointment.type,
+          appointment.dateStart,
+          appointment.patient,
+          appointment.patientId,
+          appointment.consultationFileId
+        )))
+      );
+    }
+
     getAllTestsByUserId(): Observable<Test[]> {
         return this.http.get(`${this.baseUrl}/tests/${this.tokenService.getUser().id}`).pipe(
           map((response: any) => response.map((test: any) => new Test(
@@ -38,12 +55,39 @@ export class ConsultationFileService {
         );
       }
   
+      getAllTestsByPatientId(id?:string): Observable<Test[]> {
+        return this.http.get(`${this.baseUrl}/tests/${id}`).pipe(
+          map((response: any) => response.map((test: any) => new Test(
+            test.idTest,
+            test.testName,
+          )))
+        );
+      }
+
+      updatePrescription(id?:string,content?:String) :Observable<any>{
+        console.log("in updateNote")
+        let url = `${this.baseUrl}/note/${id}`;
+        console.log(url);
+        return this.http.put<any>(`${this.baseUrl}/prescription/${id}`,content);      }
+
+
+      updateNote(id?:string,content?:String): Observable<any>{
+        console.log("in updateNote")
+        let url = `${this.baseUrl}/note/${id}`;
+        console.log(url);
+        return this.http.put<any>(`${this.baseUrl}/note/${id}`,content);
+      }
+  
 
 
 
     getPrescriptionById(id?:string): Observable<Prescription>{
         return this.http.get(`${this.baseUrl}/prescription/${id}`);
     }
+
+    getConsultationFileByAppointmentId(id?:string): Observable<ConsultationFile>{
+      return this.http.get(`${this.baseUrl}/appointment/${id}`) as Observable<ConsultationFile>;
+  }
 
     addNewTestToConsultationFile(testName:string,id?: string): Observable<Test> {
         const url = `${this.baseUrl}/${id}/add-test/${testName}`;

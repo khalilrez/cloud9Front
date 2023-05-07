@@ -53,6 +53,9 @@ import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.comp
 import { CallService } from './service/call.service';
 import Peer from 'peerjs';
 import { CommonModule } from '@angular/common';
+import { ConferenceComponentComponent } from './conference-component/conference-component.component';
+import { EditConsultationFileComponent } from './edit-consultation-file/edit-consultation-file.component';
+
 
 
 
@@ -90,7 +93,9 @@ import { CommonModule } from '@angular/common';
     AdminMenuComponent,
     AdminSecurityComponent,
     ResetPwdSmsComponent,
-    ConsultationFileComponent
+    ConsultationFileComponent,
+    ConferenceComponentComponent,
+    EditConsultationFileComponent
       ],
   imports: [
     CommonModule,

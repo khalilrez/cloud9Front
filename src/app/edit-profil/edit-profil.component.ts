@@ -6,6 +6,7 @@ import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { ConsultationFile } from '../models/consultationFile.model';
 import { ConsultationFileService } from '../service/consultationFile.service';
+import { Appointment } from '../models/appointment.model';
 
 @Component({
   selector: 'app-edit-profil',
@@ -15,6 +16,7 @@ import { ConsultationFileService } from '../service/consultationFile.service';
 export class EditProfilComponent {
   //consultation Files 
   files:ConsultationFile[] = [];
+  appointments:Appointment[] = [];
 
   roles: string[] = [];
   isLoggedIn = false;
@@ -80,12 +82,22 @@ export class EditProfilComponent {
           console.error(error);
         }
       );
+      this.consultationFileService.getAllAppointmentsByDoctorId().subscribe(
+        (appointment) => {
+          this.appointments = appointment;
+          console.log(appointment);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
 
     this.isLoggedIn = this.Storage.isLoggedIn();
 
     if (this.isLoggedIn) {
       const user = this.Storage.getUser();
       this.roles = user.roles;
+      console.log(this.roles)
     }
     this.imageName= this.user.imageProfile;
    this.name = this.user.username;
@@ -124,5 +136,12 @@ export class EditProfilComponent {
     console.log("going to /consultation-file")
     // Navigate to the consultation file component with the consultationFile object
     this.router.navigate(['/consultation-file'], { state: { consultationFile: cf ,index:index} });
+  }
+
+  goToConsultationFileAsDoctor(id:string,user:string) {
+    console.log("going to /consultation-file-edit")
+    console.log(id)
+    // Navigate to the consultation file component with the consultationFile object
+    this.router.navigate(['/consultation-file-edit'], { state: { appointmentId: id ,patientId:user} });
   }
 }

@@ -1,7 +1,8 @@
 #video-wrapper {
 	text-align: center;
-    	background-color: #343434;
+    background-color: #343434;
 	border-radius: 4px;
+	height: 70vh;
 }
 
 #remote-video {
@@ -22,3 +23,24 @@
 	border: 3px solid white;
 	border-radius: 4px;
 }
+  /* Style for the title h3 element */
+  h3 {
+    font-size: 56px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  /* Style for emphasized words */
+  em {
+	display: inline;
+    color: #ff7f50;
+    font-weight: bold;
+  }
+
+  .container{
+	background-color: white;
+  }
