@@ -135,8 +135,14 @@
                                 <li>
                                     <div class="dropdown-divider"></div>
                                 </li>
-                                <li>
+                                <li *ngIf="isRoleD">
                                     <a class="dropdown-item" routerLink="/myprofile">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">My Profile</span>
+                                    </a>
+                                </li>
+                                <li *ngIf="isRoleP">
+                                    <a class="dropdown-item" routerLink="/profile">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">My Profile</span>
                                     </a>

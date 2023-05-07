@@ -192,11 +192,11 @@ this.roles=[e.target.value];
     
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);  
     this.authService.authState.subscribe((result) => {
-console.log("heu");
 console.log(result.email);
 this.http.get(`http://localhost:8075/api/auth/findbymail/${result.email}`).subscribe((resultData: any)=>{
+  console.log(resultData);
   if(resultData ){
-    sessionStorage.setItem('auth-user',JSON.stringify(this.user.response));
+    sessionStorage.setItem('auth-user',JSON.stringify(resultData));
     this.router.navigate(['/edit']);
   }
   else{

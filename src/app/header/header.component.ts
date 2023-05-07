@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
    roles: string = "";
    roleeee: string = "";
-
+   isRoleD: boolean = false;
+   isRoleP: boolean = false;
   isLoggedIn = false;
   imageName :string ="";
   username?: string;
@@ -47,6 +48,12 @@ export class HeaderComponent implements OnInit {
 
 
 
+  }
+
+  if (this.roles == "ROLE_DOCTOR" || this.roleeee == "ROLE_DOCTOR") {
+    this.isRoleD = true;
+  } else if (this.roles == "ROLE_PATIENT" || this.roleeee == "ROLE_PATIENT") {
+    this.isRoleP = true;
   }
 
 }
