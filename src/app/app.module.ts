@@ -29,6 +29,8 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
+    DeliveryComponent,
+    ReclamationComponent,
   
 
 

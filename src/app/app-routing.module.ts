@@ -22,6 +22,8 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -44,7 +46,9 @@ const routes: Routes = [
   { path: 'comingsoon', component: ComingsoonComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/users', component: AdminUsersComponent },
-  
+  { path: 'admin/delivery', component: DeliveryComponent },
+  { path: 'admin/reclamation', component: ReclamationComponent },
+
   { path: 'admin/profile', component: AdminProfileComponent },
   { path: 'admin/settings', component: AdminSetsComponent },
   { path: 'admin/security', component: AdminSecurityComponent },
@@ -84,5 +88,6 @@ export const routingComponents = [
   ShopComponent,
   CheckoutComponent,
   AdminComponent,
-  AdminUsersComponent
+  AdminUsersComponent,
+  DeliveryComponent
 ];
