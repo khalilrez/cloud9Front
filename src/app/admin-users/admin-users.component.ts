@@ -1,9 +1,11 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-users',
@@ -78,5 +80,6 @@ console.log(this.listUsers);
     })
 
   }
+
 
 }

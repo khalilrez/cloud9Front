@@ -3,6 +3,7 @@ import { TokenStorageService } from '../service/token-storage.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-admin-profile',
   templateUrl: './admin-profile.component.html',

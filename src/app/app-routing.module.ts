@@ -21,6 +21,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
@@ -28,6 +29,7 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
 import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -60,6 +62,23 @@ const routes: Routes = [
   { path: 'admin/security', component: AdminSecurityComponent },
   { path: 'restSms/:phone', component: ResetPwdSmsComponent },
   { path: 'myprofile', component: MyprofileComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/users', component: AdminUsersComponent },
+  
+  { path: 'admin/profile', component: AdminProfileComponent },
+  { path: 'admin/settings', component: AdminSetsComponent },
+  { path: 'admin/security', component: AdminSecurityComponent },
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,4 +110,6 @@ export const routingComponents = [
 
 
 
+  AdminComponent,
+  AdminUsersComponent
 ];
