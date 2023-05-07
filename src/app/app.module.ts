@@ -21,6 +21,11 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
+import { ActivatedComponent } from './activated/activated.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { AuthInterceptor } from './helper/auth.interceptor';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
@@ -29,6 +34,13 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+import { ToastrModule,ToastContainerModule,ToastNoAnimationModule} from 'ngx-toastr';
+import { AngularFireModule } from '@angular/fire/compat'
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { ResetPwdSmsComponent } from './reset-pwd-sms/reset-pwd-sms.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +62,10 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
+    ForgetPasswordComponent,
+    ResetPwdComponent,
+    ActivatedComponent,
+    EditProfilComponent,
 
     AdminComponent,
     AdminProfileComponent,
@@ -58,6 +74,8 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
+    ResetPwdSmsComponent,
+    MyprofileComponent,
   
 
 
@@ -66,9 +84,37 @@ import { AdminSecurityComponent } from './admin-security/admin-security.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    SocialLoginModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot(),
+
+    ToastContainerModule,
+
+    BrowserAnimationsModule
 
   ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('2353063484872542')
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
+ 
   providers: [
 
   ],
