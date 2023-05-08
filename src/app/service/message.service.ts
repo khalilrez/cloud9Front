@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
-  readonly API_URL = 'http://localhost:8080/conversation';
+  readonly API_URL = 'http://localhost:8075/conversation';
   constructor(private http: HttpClient) {}
   getAll() {
     //return this.http.get<Events[]>('')

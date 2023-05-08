@@ -57,11 +57,7 @@
                     s
                     id="chatWindow"
                     class="chat"
-                    [ngClass]="
-                      currentUser.id === message.user.id
-                        ? 'chat-right'
-                        : 'chat-left'
-                    "
+                
                     *ngFor="let message of list"
                   >
                     <div class="chat-avatar">
@@ -71,24 +67,19 @@
                       <div class="chat-contain">
                         <p
                           class="chat-message"
-                          [ngClass]="{
-                            right: currentUser.id === message.user.id,
-                            left: currentUser.id !== message.user.id
-                          }"
+                      
+                      
                           *ngIf="message.text"
                         >
                           {{ message.text }}
                         </p>
                         <p
                           class="chat-message"
-                          [ngClass]="{
-                            right: currentUser.id === message.user.id,
-                            left: currentUser.id !== message.user.id
-                          }"
+                       
                           *ngIf="message.file"
                         >
                           <a
-                            href="http://localhost:8080/upload/{{
+                            href="http://localhost:8075/upload/{{
                               message.file
                             }}"
                             target="_blank"
@@ -98,10 +89,7 @@
                         </p>
                         <span
                           class="chat-time"
-                          [ngClass]="{
-                            right: currentUser.id === message.user.id,
-                            left: currentUser.id !== message.user.id
-                          }"
+                       
                           title="{{ message.date | date }}"
                         >
                           {{ message.date | date : "HH:mm" }}
