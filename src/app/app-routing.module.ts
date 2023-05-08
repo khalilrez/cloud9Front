@@ -39,6 +39,7 @@ import { VideoCallComponent } from './video-call/video-call.component';
 import { ConferenceComponentComponent } from './conference-component/conference-component.component';
 import { EditConsultationFileComponent } from './edit-consultation-file/edit-consultation-file.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -104,13 +105,14 @@ const routes: Routes = [
 
 
 
+  { path: 'chat', component: ChatComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 
 export const routingComponents = [
   HomeComponent,
@@ -134,5 +136,6 @@ export const routingComponents = [
   DeliveryComponent,
   AdminAppointmentComponent,
   DoctorAppointmentComponent,
-  AdminUsersComponent
-  ];
+  AdminUsersComponent,
+  ChatComponent,
+];
