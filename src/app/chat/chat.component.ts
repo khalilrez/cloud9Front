@@ -131,9 +131,14 @@ export class ChatComponent {
       console.log("++++----");
       console.log(this.currentUser.id);
     }
+    console.log("this.conversation.id");
+    
+    //console.log(this.conversation.id);
+
     console.log(this.currentUser);
     this.userService.getAll().subscribe((data) => {
       this.chatList = data;
+      console.log(data);
     });
     this.conversationService
       .getConversationMessages(this.conversation.id)
@@ -157,14 +162,17 @@ export class ChatComponent {
     this.selecteduser = selectedUser;
     this.list = [];
     this.conversationService
-      .getConversationusers(this.currentUser.id, this.selecteduser.id)
+      .getConversationusers(this.currentUser.id, this.selecteduser.idUser)
       .subscribe(
         (data) => {
           this.conversation = data;
+          console.log("CONVERSATION AFTER GET CONVERSATIONS USERS");
+          console.log(this.conversation);
           this.conversationService
             .getConversationMessages(this.conversation.id)
             .subscribe(
               (data) => {
+                
                 this.listmessage = data;
                 this.list = this.listmessage;
                 console.log('++++++++++++++');
@@ -172,6 +180,8 @@ export class ChatComponent {
                 console.log(this.conversation);
                 console.log('++++++++++++++');
                 let messagesArray = Array.from(this.list); // Cast NgIterable<Message> to Message[]
+                console.log("messagesArray");
+                console.log(messagesArray);
                 messagesArray.sort((a, b) => {
                   return (
                     new Date(b.date).getTime() - new Date(a.date).getTime()

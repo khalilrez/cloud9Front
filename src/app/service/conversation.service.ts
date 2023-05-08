@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ConversationService {
-  readonly API_URL = 'http://localhost:8080/conversation';
+  readonly API_URL = 'http://localhost:8075/conversation';
   constructor(private http: HttpClient) {}
   getConversations(id: number) {
     //return this.http.get<Events[]>('')
@@ -17,6 +17,9 @@ export class ConversationService {
     return this.http.get(`${this.API_URL}/messages/` + id);
   }
   getConversationusers(iduser1: number, iduser2: number) {
+    console.log("iduser2 + iduser1");
+    console.log(iduser2);
+    console.log(iduser1);
     //return this.http.get<Events[]>('')
     return this.http.get(`${this.API_URL}/` + iduser1 + '/' + iduser2);
   }
