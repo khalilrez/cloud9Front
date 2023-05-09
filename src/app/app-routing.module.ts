@@ -16,6 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ResearchComponent } from './research/research.component';
 import { SingleResearchComponent } from './single-research/single-research.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { PostSearchComponent } from './post-search/post-search.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
@@ -43,6 +44,7 @@ import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+
   { path: 'home', component: HomeComponent },
   { path: 'Calendar/:id', component: AppointmentComponent },
   { path: 'MyCalendar/:id', component: MyAppointmentsComponent },
@@ -54,7 +56,7 @@ const routes: Routes = [
   { path: 'single-team/:id', component: SingleTeamComponent },
   { path: 'blogOne', component: BlogOneComponent },
   { path: 'blogTwo', component: BlogTwoComponent },
-  { path: 'single-blog', component: SingleBlogComponent },
+  { path: 'single-blog/:postId', component: SingleBlogComponent },
   { path: 'single-service', component: SingleServiceComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'checkout', component: CheckoutComponent },
@@ -63,6 +65,7 @@ const routes: Routes = [
   { path: 'research', component: ResearchComponent },
   { path: 'single-research', component: SingleResearchComponent },
   { path: 'comingsoon', component: ComingsoonComponent },
+  { path: 'search', component: PostSearchComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'ResetPwd/:email', component: ResetPwdComponent },
   { path: 'activate', component: ActivatedComponent },
@@ -105,7 +108,9 @@ const routes: Routes = [
 
 
 
+
   { path: 'chat', component: ChatComponent },
+
 ];
 
 @NgModule({
@@ -136,6 +141,8 @@ export const routingComponents = [
   DeliveryComponent,
   AdminAppointmentComponent,
   DoctorAppointmentComponent,
+
   AdminUsersComponent,
-  ChatComponent,
+  ChatComponent
+
 ];

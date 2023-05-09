@@ -17,6 +17,8 @@ import { Role } from '../models/role.model';
 export class HomeComponent {
   isLoggedIn = false;
   roles: string[] = [];
+  user? : User ;
+
 
   constructor(private router: Router,private http: HttpClient,private toastr: ToastrService , private Storage: TokenStorageService) { }
 
@@ -25,6 +27,7 @@ export class HomeComponent {
 
   getAllUsers(){
     this.http.get<User[]>("http://localhost:8075/api/auth/getDoctor/ROLE_DOCTOR").subscribe((resultData)=>{
+      console.log(resultData);
 this.listUsers = resultData;
 console.log(this.listUsers);
 
@@ -37,19 +40,15 @@ console.log(this.listUsers);
 
   ngOnInit(): void {
   this.isLoggedIn = this.Storage.isLoggedIn();
-
+  this.user=this.Storage.getUser();
   this.getAllUsers();
 
-  if (this.isLoggedIn) {
-    const user = this.Storage.getUser();
-    this.roles = user.roles;
-
+ 
     this.router.navigateByUrl("/home");  
     
-}
-else {
-  this.router.navigateByUrl("/login");  
 
-}
+
+
+
 }
 }

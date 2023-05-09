@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class CallService {
 
     private peer: Peer;
+    // @ts-ignore
     private mediaCall: Peer.MediaConnection;
   
     private localStreamBs: BehaviorSubject<MediaStream> = new BehaviorSubject(null);
@@ -24,6 +25,7 @@ export class CallService {
 
     public initPeer(): string {
         if (!this.peer || this.peer.disconnected) {
+             // @ts-ignore
             const peerJsOptions: Peer.PeerJSOption = {
                 debug: 3,
                 config: {
@@ -54,7 +56,9 @@ export class CallService {
 
             const connection = this.peer.connect(remotePeerId);
             connection.on('error', err => {
+                
                 console.error(err);
+                 // @ts-ignore
                 this.snackBar.open(err, 'Close');
             });
 

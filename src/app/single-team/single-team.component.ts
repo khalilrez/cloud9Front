@@ -23,17 +23,20 @@ import { ToastrService } from 'ngx-toastr';
 export class SingleTeamComponent implements OnInit {
   user? : User ;
   constructor(private router: Router,private http: HttpClient,private actRoute: ActivatedRoute,private userService: UserService, private dialog: MatDialog, private appointmentService: AppointmentService) { }
-  openAddAppointment(){
-    this.dialog.open(AppointmentFormComponent);
+  id : string ;
+  openAddAppointment(id : number){
+    this.dialog.open(AppointmentFormComponent,{
+      data: { id: id },
+    });
   }
   openCharge(){
     this.dialog.open(ChargeComponent);
   }
   ngOnInit(): void{
-  let id = this.actRoute.snapshot.paramMap.get('id');
+  this.id = this.actRoute.snapshot.paramMap.get('id');
   
 
-    this.http.get(`http://localhost:8075/api/auth/getDoctorById/${id}`).subscribe((resultData: any)=>{
+    this.http.get(`http://localhost:8075/api/auth/getDoctorById/${this.id}`).subscribe((resultData: any)=>{
       console.log(resultData);
       this.user = resultData;
            

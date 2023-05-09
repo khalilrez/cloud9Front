@@ -12,6 +12,8 @@ import * as moment from 'moment-timezone';
 
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from '../models/user.model';
+import { TokenStorageService } from '../service/token-storage.service';
 @Component({
   selector: 'app-my-appointments',
   templateUrl: './my-appointments.component.html',
@@ -19,10 +21,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MyAppointmentsComponent implements OnInit{
   appointments: Appointment[] = [];
-
+user:User;
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
 
-  constructor(private appointmentService: AppointmentService,  private route: ActivatedRoute, private dialog: MatDialog){}
+  constructor(private appointmentService: AppointmentService,  private route: ActivatedRoute, private dialog: MatDialog, private storageService:TokenStorageService){}
 
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, timeGridPlugin],
@@ -42,8 +44,11 @@ export class MyAppointmentsComponent implements OnInit{
   };
 
   ngOnInit() {
+    this.user = this.storageService.getUser();
+    console.log(this.user);
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.getAppointmentsByPatient(id);  }
+   
 
   getAppointmentsByPatient(id: number): void {
     this.appointmentService.getAppointmentsByPatient(id).subscribe(

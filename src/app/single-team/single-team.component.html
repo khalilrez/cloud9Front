@@ -165,7 +165,7 @@
                         
                         <div class="col-lg-12 col-md-12">
                             <div class="button-container">
-                                <a  class="btn btn-primary" (click)="openAddAppointment()"(click)="openAddAppointment()" >Make Appointment</a>
+                                <a  class="btn btn-primary" (click)="openAddAppointment(user.idUser)" >Make Appointment</a>
                                 <a [routerLink]="['/Calendar', user?.idUser]" class="learn-more-btn">Consult the doctor's calendar <i class="flaticon-arrow-pointing-to-right"></i></a>
                               </div>
                            <!--   <button mat-raised-button [routerLink]="['/Calendar', user?.idUser]">Calendar</button> -->
