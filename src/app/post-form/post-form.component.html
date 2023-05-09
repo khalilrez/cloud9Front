@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="my-4 display-4 text-center">{{ message }}</h1>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="my-4">
+    <div class="mb-3">
+      <label for="postName" class="form-label">Post Name</label>
+      <input
+        type="text"
+        id="postName"
+        formControlName="postName"
+        class="form-control"
+        placeholder="You can add to your post a name here"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="postContent" class="form-label">Post Content</label>
+      <textarea
+        id="postContent"
+        formControlName="postContent"
+        class="form-control"
+        placeholder="Feel free to write , here is your safeplace"
+        maxlength="10000"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image URL</label>
+      <input
+        type="text"
+        id="imageUrl"
+        formControlName="imageUrl"
+        class="form-control"
+        placeholder="Paste the URL of the image yo want to add here "
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -36,7 +36,7 @@ export class AppointmentFormComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private dialogRef: MatDialogRef<AppointmentFormComponent>,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: { appointment: Appointment | null}
+    @Inject(MAT_DIALOG_DATA) public data: { id: number}
   ) {
     this.controlGroup = this.fb.group({
       type: ['', Validators.required],
@@ -72,7 +72,7 @@ export class AppointmentFormComponent implements OnInit {
      
         },  
 
-         doctor: { idUser: 5 ,username:'' ,email:'' ,password:'' ,imageProfile:'' ,phonenumber:''
+         doctor: { idUser: this.data.id ,username:'' ,email:'' ,password:'' ,imageProfile:'' ,phonenumber:''
         ,isverified:1, speciality:'' ,gender:'' ,height:'' ,weight:'' ,bloodType:'' ,age:'' ,education:'' ,certificate:'' 
         ,firstName:''
         ,lastName:''

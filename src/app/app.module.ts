@@ -22,6 +22,15 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+
+import { PostComponent } from './post/post.component';
+import { CommentComponent } from './comment/comment.component';
+import { ReplySectionComponent } from './reply-section/reply-section.component';
+import { PostSearchComponent } from './post-search/post-search.component';
+import { PopularPostsComponent } from './popular-posts/popular-posts.component';
+import { PostFormComponent } from './post-form/post-form.component';
+
+import { CommentBlogComponent } from './comment-blog/comment-blog.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -40,6 +49,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { ChargeComponent } from './charge/charge.component';
 import { NgxStripeModule } from 'ngx-stripe';
 
+
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPwdComponent } from './reset-pwd/reset-pwd.component';
 import { ActivatedComponent } from './activated/activated.component';
@@ -52,6 +62,16 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+
+import { UpdatePostComponent } from './update-post/update-post.component';
+import { ReactionsComponent } from './reactions/reactions.component';
+
 import { AdminAppointmentComponent } from './admin-appointment/admin-appointment.component';
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 import { AppointmentFormDashComponent } from './appointment-form-dash/appointment-form-dash.component';
@@ -109,10 +129,20 @@ import { ToastrModule } from 'ngx-toastr';
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
+
+    PostComponent,
+    CommentComponent,
+    ReplySectionComponent,
+    PostSearchComponent,
+    PopularPostsComponent,
+    PostFormComponent,
+    CommentBlogComponent,
+
     AppointmentComponent,
     AppointmentFormComponent,
     MyAppointmentsComponent,
     ChargeComponent,
+
     ForgetPasswordComponent,
     ResetPwdComponent,
     ActivatedComponent,
@@ -124,6 +154,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
+    UpdatePostComponent,
+    ReactionsComponent,
     AdminAppointmentComponent,
     DoctorAppointmentComponent,
     AppointmentFormDashComponent,
@@ -196,4 +228,4 @@ import { ToastrModule } from 'ngx-toastr';
  
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
