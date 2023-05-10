@@ -164,10 +164,10 @@
                                   <span><i class="bx bx-export me-1"></i>Export</span>
                                   <span class="dt-down-arrow"></span>
                                 </button>
-                                <button class="btn btn-secondary add-new btn-primary" tabindex="0"
-                                        aria-controls="DataTables_Table_0" type="button" >
-                                  <span><i class="bx bx-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add New Appointment</span></span>
-                                </button>
+                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                    Add DELIVERY
+                                  </button>
+
                               </div>
                               
                         </div>
@@ -255,7 +255,7 @@
         </div>
     </div>
     <!-- Offcanvas to add new user -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser"
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         aria-labelledby="offcanvasAddUserLabel">
         <div class="offcanvas-header">
             <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Add User</h5>
@@ -355,7 +355,7 @@
                     </select>
                 </div>
                 <button type="submit"
-                    class="btn btn-primary me-sm-3 me-1 data-submit">Submit</button>
+                    class="btn btn-primary me-sm-3 me-1 data-submit" (click)="addDelivery()">Submit</button>
                 <button type="reset" class="btn btn-label-secondary"
                     data-bs-dismiss="offcanvas">Cancel</button>
                 <input type="hidden">

@@ -21,7 +21,7 @@ import { TokenStorageService } from '../service/token-storage.service';
 })
 export class MyAppointmentsComponent implements OnInit{
   appointments: Appointment[] = [];
-user:User;
+user:any;
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
 
   constructor(private appointmentService: AppointmentService,  private route: ActivatedRoute, private dialog: MatDialog, private storageService:TokenStorageService){}
@@ -46,7 +46,9 @@ user:User;
   ngOnInit() {
     this.user = this.storageService.getUser();
     console.log(this.user);
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id =this.user.id;
+    console.log(id);
+    
     this.getAppointmentsByPatient(id);  }
    
 

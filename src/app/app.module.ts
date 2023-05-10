@@ -22,6 +22,11 @@ import { SingleResearchComponent } from './single-research/single-research.compo
 import { ResearchComponent } from './research/research.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { PharmacydisplayComponent } from './pharmacydisplay/pharmacydisplay.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Order2Component } from './order2/order2.component';
+import { AddorederComponent } from './addoreder/addoreder.component';
+import { UpdateorderComponent } from './updateorder/updateorder.component';
 
 import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
@@ -62,6 +67,14 @@ import { AdminSetsComponent } from './admin-sets/admin-sets.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminSecurityComponent } from './admin-security/admin-security.component';
+import { AddpharmacyComponent } from './addpharmacy/addpharmacy.component';
+import { DisplaypharmacyadminComponent } from './displaypharmacyadmin/displaypharmacyadmin.component';
+import { UpdatepharmacyadminComponent } from './updatepharmacyadmin/updatepharmacyadmin.component';
+import { ChartpharamcyComponent } from './chartpharamcy/chartpharamcy.component';
+import { NgChartsModule } from 'ng2-charts';
+import { OrderadminComponent } from './orderadmin/orderadmin.component';
+import { AddorderadminComponent } from './addorderadmin/addorderadmin.component';
+import { UpdatzorderadminComponent } from './updatzorderadmin/updatzorderadmin.component';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
@@ -100,13 +113,11 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 
-
-import { ChatComponent } from './chat/chat.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ChatComponent } from './chat/chat.component';
+
 import { ToastrModule } from 'ngx-toastr';
-
-
 @NgModule({
   declarations: [
     CallInfoDialogComponents,
@@ -129,6 +140,11 @@ import { ToastrModule } from 'ngx-toastr';
     ResearchComponent,
     NotfoundComponent,
     ComingsoonComponent,
+    PharmacydisplayComponent,
+    Order2Component,
+    AddorederComponent,
+    UpdateorderComponent,
+    AdminComponent,
 
     PostComponent,
     CommentComponent,
@@ -154,7 +170,14 @@ import { ToastrModule } from 'ngx-toastr';
     AdminHeaderComponent,
     AdminMenuComponent,
     AdminSecurityComponent,
-    UpdatePostComponent,
+    AddpharmacyComponent,
+    DisplaypharmacyadminComponent,
+    UpdatepharmacyadminComponent,
+    ChartpharamcyComponent,
+    OrderadminComponent,
+    AddorderadminComponent,
+    UpdatzorderadminComponent,
+     UpdatePostComponent,
     ReactionsComponent,
     AdminAppointmentComponent,
     DoctorAppointmentComponent,
@@ -167,9 +190,7 @@ import { ToastrModule } from 'ngx-toastr';
     ConferenceComponentComponent,
     EditConsultationFileComponent,
     MyprofileComponent,
-    ChatComponent,
-    
-    
+    ChatComponent,    
   ],
   imports: [
     CommonModule,
@@ -193,7 +214,6 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),
     NgbModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -201,7 +221,8 @@ import { ToastrModule } from 'ngx-toastr';
     ClipboardModule,
     MatSnackBarModule,
     FullCalendarModule,
-    DateTimePickerModule
+    DateTimePickerModule,
+    BrowserAnimationsModule
   ],
   providers: [
   {

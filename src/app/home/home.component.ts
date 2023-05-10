@@ -40,7 +40,8 @@ console.log(this.listUsers);
 
   ngOnInit(): void {
   this.isLoggedIn = this.Storage.isLoggedIn();
-  this.user=this.Storage.getUser();
+  this.user=this.Storage.getUser(); 
+  console.log(this.user);
   this.getAllUsers();
 
  

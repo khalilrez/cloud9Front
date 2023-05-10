@@ -14,6 +14,7 @@ export class ReclamationComponent {
   ngOnInit() {
     this.reclamationService.getReclamations().subscribe(data => {
       this.listreclamation = data;
+      console.log(this.listreclamation)
     });
   }
 
