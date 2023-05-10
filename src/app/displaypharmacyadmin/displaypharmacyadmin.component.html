@@ -36,7 +36,7 @@
                                   <a class="nav-link" routerLink="/admin/Displaypharmacyadmin">Pharmacies List</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="http://localhost:8075/api/map">Map</a>
+                                  <a class="nav-link" href="http://localhost:8075/api/map" target="_blank">Map</a>
                                 </li>
                                 <li class="nav-item">
                                       
@@ -74,7 +74,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let ph of pharamcys  | filter:term ">
+                    <tr *ngFor="let ph of pharamcys  ">
                     <td>{{ph.name}}</td>
                     <td>{{ph.amplitude}}</td>
                     <td>{{ph.altitude}}</td>

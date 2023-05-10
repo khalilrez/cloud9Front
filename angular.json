@@ -28,6 +28,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/css/app.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/animate.min.css",
               "src/assets/css/fontawesome.min.css",
@@ -45,7 +47,9 @@
               "src/back-assets/vendor/css/theme-default.css",
               "src/back-assets/css/demo.css",
               "src/back-assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css",
-              "src/back-assets/vendor/libs/apex-charts/apex-charts.css"
+              "src/back-assets/vendor/libs/apex-charts/apex-charts.css",
+              "node_modules/ngx-toastr/toastr.css"
+       
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -64,8 +68,6 @@
               "src/assets/js/form-validator.min.js",
               "src/assets/js/contact-form-script.js",
               "src/assets/js/main.js",
-
-
               "src/back-assets/vendor/js/helpers.js",
               "src/back-assets/js/config.js",
               "src/back-assets/vendor/libs/jquery/jquery.js",
@@ -76,8 +78,6 @@
               "src/back-assets/vendor/libs/apex-charts/apexcharts.js",
               "src/back-assets/js/main.js",
               "src/back-assets/js/dashboards-analytics.js"
-
-             
             ]
           },
           "configurations": {
@@ -139,9 +139,20 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "zylon:build:production",
+            "firebaseProject": "tobeeb-aa37d",
+            "firebaseHostingSite": "tobeeb-aa37d"
           }
         }
       }
